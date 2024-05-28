@@ -8,6 +8,7 @@ export class CreateTableOrder1716657974864 implements MigrationInterface {
             user_id integer NOT NULL,
             position_id integer NOT NULL,
             asset character varying NOT NULL,
+            market character varying NOT NULL,
             type character varying NOT NULL,
             qtd integer NOT NULL,
             price integer NOT NULL,

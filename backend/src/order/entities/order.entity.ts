@@ -18,6 +18,9 @@ export class OrderEntity {
   @Column({ name: 'asset', nullable: false })
   asset: string;
 
+  @Column({ name: 'market', nullable: false })
+  market: string;
+
   @Column({ name: 'type', nullable: false })
   type: string;
 
