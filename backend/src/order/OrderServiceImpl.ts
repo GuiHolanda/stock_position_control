@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { rawOrders } from '../utils/generateJsonFromXlsx';
+import { OrderService } from './OrderService';
 
 export interface OrderItem {
   date: string;
@@ -12,8 +13,8 @@ export interface OrderItem {
 }
 
 @Injectable()
-export class OrderService {
-  public formatOrderKeysAndStringValues(orders: rawOrders[]) {
+export class OrderServiceImpl implements OrderService {
+  public formatOrderKeysAndStringValues(orders: rawOrders[]): OrderItem[] {
     const formattedData = orders.map((order) => {
       const {
         'Data do Negócio': date,
@@ -43,7 +44,7 @@ export class OrderService {
     return formattedData;
   }
 
-  private removeFFromAssetsCode(orders: OrderItem[]) {
+  private removeFFromAssetsCode(orders: OrderItem[]): OrderItem[] {
     return orders.map((order) => {
       if (
         order.asset.slice(-1) === 'F' &&
@@ -63,7 +64,10 @@ export class OrderService {
     });
   }
 
-  public getModificationsDate = (orders: OrderItem[], onlySales = false) => {
+  public getModificationsDate(
+    orders: OrderItem[],
+    onlySales = false,
+  ): string[] {
     const stringDateArray: string[] = [];
     let filteredOrders: OrderItem[];
     onlySales
@@ -79,7 +83,7 @@ export class OrderService {
       }
     });
     return stringDateArray;
-  };
+  }
 
   public consolidateOrders(orders: OrderItem[]): OrderItem[] {
     const consolidatedOrders: OrderItem[] = [];
