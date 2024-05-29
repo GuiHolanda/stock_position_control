@@ -39,9 +39,6 @@ export class UserService {
   async getUserWithRelations(userId: number): Promise<UserEntity> {
     return this.userRepository.findOne({
       where: { id: userId },
-      relations: {
-        position: true,
-      },
     });
   }
 
