@@ -4,17 +4,20 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
   JoinColumn,
   OneToMany,
+  ManyToOne,
 } from 'typeorm';
 import { UserEntity } from '../../user/entities/user.entity';
 import { OrderEntity } from '../../order/entities/order.entity';
 
-@Entity({ name: 'position' })
+@Entity({ name: 'positions' })
 export class PositionEntity {
   @PrimaryGeneratedColumn('rowid')
   id: number;
+
+  @Column({ name: 'user_id', nullable: false })
+  userId: number;
 
   @Column({ name: 'asset', nullable: false })
   asset: string;
@@ -28,22 +31,37 @@ export class PositionEntity {
   @Column({ name: 'qtd', nullable: false })
   qtd: number;
 
-  @Column({ name: 'price', nullable: false })
+  @Column({
+    name: 'price',
+    nullable: false,
+    type: 'decimal',
+    precision: 6,
+    scale: 2,
+  })
   price: number;
 
-  @Column({ name: 'value', nullable: false })
+  @Column({
+    name: 'value',
+    nullable: false,
+    type: 'decimal',
+    precision: 6,
+    scale: 2,
+  })
   value: number;
 
-  @CreateDateColumn({ name: 'created_at', nullable: false })
+  @CreateDateColumn({
+    name: 'created_at',
+    nullable: false,
+  })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({
+    name: 'updated_at',
+    nullable: true,
+  })
   updatedAt: Date;
 
-  @UpdateDateColumn({ name: 'closed_at' })
-  closedAt: Date;
-
-  @OneToOne(() => UserEntity, (user) => user.position)
+  @ManyToOne(() => UserEntity, (user) => user.positions)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user?: UserEntity;
 

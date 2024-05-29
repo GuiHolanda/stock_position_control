@@ -4,13 +4,12 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
   OneToMany,
 } from 'typeorm';
 import { PositionEntity } from '../../position/entities/position.entity';
 import { OrderEntity } from '../../order/entities/order.entity';
 
-@Entity({ name: 'user' })
+@Entity({ name: 'users' })
 export class UserEntity {
   @PrimaryGeneratedColumn('rowid')
   id: number;
@@ -33,8 +32,8 @@ export class UserEntity {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @OneToOne(() => PositionEntity, (position) => position.user)
-  position?: PositionEntity;
+  @OneToMany(() => PositionEntity, (position) => position.userId)
+  positions?: PositionEntity[];
 
   @OneToMany(() => OrderEntity, (order) => order.user)
   orders?: OrderEntity[];

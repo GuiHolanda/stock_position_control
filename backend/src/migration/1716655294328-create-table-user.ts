@@ -2,35 +2,28 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreateTableUser1716655294328 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.query(`
-        CREATE TABLE public.user(
-            id integer NOT NULL,
-            name character varying NOT NULL,
-            email character varying NOT NULL,
-            role int NOT NULL,
-            password character varying NOT NULL,
-            created_at timestamp without time zone default now() NOT NULL,
-            updated_at timestamp without time zone default now() NOT NULL,
-            primary key (id)
+    await queryRunner.query(`
+        CREATE TABLE public.users (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL UNIQUE,
+            role VARCHAR(50) NOT NULL,
+            password VARCHAR(255) NOT NULL,
+            created_at timestamp without time zone DEFAULT now() NOT NULL,
+            updated_at timestamp without time zone DEFAULT now() NOT NULL
         );
 
-        CREATE SEQUENCE public.user_id_seq
-            AS integer
-            START WITH 1
-            INCREMENT BY 1
-            NO MINVALUE
-            NO MAXVALUE
-            CACHE 1;
+        ALTER TABLE public.users ADD CONSTRAINT check_role CHECK (role IN ('admin', 'user'));
 
-        ALTER SEQUENCE public.user_id_seq OWNED BY public.user.id;
+        CREATE INDEX idx_users_role ON public.users(role);
 
-        ALTER TABLE ONLY public.user ALTER COLUMN id SET DEFAULT nextval('public.user_id_seq'::regClass);
+        COMMENT ON TABLE public.users IS 'Table containing user data';
     `);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.query(`
-    drop table public.user;
-`);
+    await queryRunner.query(`
+        DROP TABLE IF EXISTS public.users;
+    `);
   }
 }
