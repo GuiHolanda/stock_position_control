@@ -22,7 +22,7 @@ export class OrderEntity {
   market: string;
 
   @Column({ name: 'type', nullable: false })
-  type: string;
+  type: 'compra' | 'venda';
 
   @Column({ name: 'qtd', nullable: false })
   qtd: number;

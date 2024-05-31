@@ -5,7 +5,7 @@ export class CreatePositionDTO {
   asset: string;
 
   @IsString()
-  type: string;
+  type: 'compra' | 'venda';
 
   @IsString()
   market: string;

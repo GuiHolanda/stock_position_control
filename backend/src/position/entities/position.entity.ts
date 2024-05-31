@@ -23,10 +23,13 @@ export class PositionEntity {
   asset: string;
 
   @Column({ name: 'type', nullable: false })
-  type: string;
+  type: 'compra' | 'venda';
+
+  @Column({ name: 'market', nullable: false })
+  market: string;
 
   @Column({ name: 'status', nullable: false })
-  status: string;
+  status: 'opened' | 'closed';
 
   @Column({ name: 'qtd', nullable: false })
   qtd: number;

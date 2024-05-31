@@ -18,6 +18,10 @@ export class CreateTableOrder1716657974864 implements MigrationInterface {
           FOREIGN KEY (user_id) REFERENCES public.users(id),
           FOREIGN KEY (position_id) REFERENCES public.positions(id)
       );
+
+      ALTER TABLE public.orders ADD CONSTRAINT check_type CHECK (type IN ('compra', 'venda'));
+
+      CREATE INDEX idx_orders_type ON public.orders(type);
     `);
   }
 
