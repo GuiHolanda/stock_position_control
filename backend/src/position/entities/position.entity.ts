@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { UserEntity } from '../../user/entities/user.entity';
 import { OrderEntity } from '../../order/entities/order.entity';
+import { PositionHistoryEntity } from '../../position_history/entities/position_history.entity';
 
 @Entity({ name: 'positions' })
 export class PositionEntity {
@@ -27,9 +28,6 @@ export class PositionEntity {
 
   @Column({ name: 'market', nullable: false })
   market: string;
-
-  @Column({ name: 'status', nullable: false })
-  status: 'opened' | 'closed';
 
   @Column({ name: 'qtd', nullable: false })
   qtd: number;
@@ -67,6 +65,12 @@ export class PositionEntity {
   @ManyToOne(() => UserEntity, (user) => user.positions)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user?: UserEntity;
+
+  @OneToMany(
+    () => PositionHistoryEntity,
+    (position_history) => position_history.currentPosition,
+  )
+  position_history?: PositionHistoryEntity[];
 
   @OneToMany(() => OrderEntity, (order) => order.position)
   orders?: OrderEntity[];

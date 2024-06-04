@@ -1,18 +1,16 @@
 import {
   BadRequestException,
+  Inject,
   Injectable,
   NotFoundException,
+  forwardRef,
 } from '@nestjs/common';
 import { PositionEntity } from './entities/position.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreatePositionDTO } from './dtos/createPosition.dto';
-import {
-  ORDER_TYPE_BUY,
-  ORDER_TYPE_SELL,
-  POSITION_STATUS_CLOSED,
-  POSITION_STATUS_OPENED,
-} from '../utils/constants';
+import { ORDER_TYPE_BUY, ORDER_TYPE_SELL } from '../utils/constants';
+import { PositionHistoryService } from '../position_history/position_history.service';
 
 interface SavePosition {
   id?: number;
@@ -20,7 +18,6 @@ interface SavePosition {
   asset?: string;
   type?: 'compra' | 'venda';
   market?: string;
-  status?: 'opened' | 'closed';
   qtd?: number;
   price?: number;
   value?: number;
@@ -31,6 +28,9 @@ export class PositionService {
   constructor(
     @InjectRepository(PositionEntity)
     private readonly positionRepository: Repository<PositionEntity>,
+
+    @Inject(forwardRef(() => PositionHistoryService))
+    private readonly positionHistoryService: PositionHistoryService,
   ) {}
 
   public async createPosition(
@@ -38,17 +38,23 @@ export class PositionService {
     userId: number,
   ): Promise<PositionEntity> {
     const currentPosition = await this.getPositionByAssetAndUserId(
-      createPositionDTO,
+      createPositionDTO.asset,
       userId,
     ).catch(() => undefined);
 
     if (!currentPosition) {
-      return await this.savePosition({
+      const newCurrentPosition = await this.savePosition({
         ...createPositionDTO,
         value: createPositionDTO.qtd * createPositionDTO.price,
-        status: POSITION_STATUS_OPENED,
         userId,
       });
+
+      await this.positionHistoryService.addNewPositionHistory(
+        userId,
+        createPositionDTO.asset,
+      );
+
+      return newCurrentPosition;
     } else {
       return await this.updateCurrentPosition(
         createPositionDTO,
@@ -58,20 +64,20 @@ export class PositionService {
   }
 
   public async getPositionByAssetAndUserId(
-    createPositionDTO: CreatePositionDTO,
+    asset: string,
     userId: number,
   ): Promise<PositionEntity> {
     const position = await this.positionRepository.findOne({
       where: {
-        asset: createPositionDTO.asset,
+        asset,
         userId,
-        status: POSITION_STATUS_OPENED,
       },
+      order: { createdAt: 'DESC' },
     });
 
     if (!position) {
       throw new NotFoundException(
-        `No opened position were found fot the asset: ${createPositionDTO.asset}`,
+        `No opened position were found fot the asset: ${asset}`,
       );
     }
 
@@ -85,8 +91,10 @@ export class PositionService {
     const isPositionAndOrderTheSameType =
       currentPosition.type === createPositionDTO.type;
 
+    let savedPosition: PositionEntity;
+
     if (isPositionAndOrderTheSameType) {
-      return await this.handlePositionAndOrderTheSameType(
+      savedPosition = await this.handlePositionAndOrderTheSameType(
         createPositionDTO,
         currentPosition,
       );
@@ -96,12 +104,19 @@ export class PositionService {
           ? ORDER_TYPE_SELL
           : ORDER_TYPE_BUY;
 
-      return await this.handlePositionAndOrderWithDifferentType(
+      savedPosition = await this.handlePositionAndOrderWithDifferentType(
         createPositionDTO,
         currentPosition,
         orderType,
       );
     }
+
+    await this.positionHistoryService.addNewPositionHistory(
+      currentPosition.userId,
+      createPositionDTO.asset,
+    );
+
+    return savedPosition;
   }
 
   private async handlePositionAndOrderTheSameType(
@@ -128,17 +143,13 @@ export class PositionService {
     currentPosition: PositionEntity,
     orderType: 'compra' | 'venda',
   ) {
-    const {
-      qtd: currentQuantity,
-      value: currentValue,
-      price: currentPrice,
-    } = currentPosition;
+    const { qtd: currentQuantity, price: currentPrice } = currentPosition;
     const { qtd: orderQuantity, price: orderPrice } = createPositionDTO;
 
     const newQtd = currentQuantity - orderQuantity;
 
     if (newQtd > 0) {
-      const newValue = currentPrice * newQtd;
+      const newValue = Number((currentPrice * newQtd).toFixed(2));
 
       return await this.savePosition({
         id: currentPosition.id,
@@ -151,21 +162,34 @@ export class PositionService {
         id: currentPosition.id,
         qtd: newQtd,
         value: 0,
-        status: POSITION_STATUS_CLOSED,
       });
     }
     if (newQtd < 0) {
-      const newPrice =
-        (currentValue + orderPrice * orderQuantity) /
-        (orderQuantity + currentQuantity);
-      const newValue = newPrice * Math.abs(newQtd);
+      const closedPrice = currentPrice;
+      const newOpenedPrice = orderPrice;
+
+      const newValue = newOpenedPrice * Math.abs(newQtd);
+
+      await this.savePosition({
+        id: currentPosition.id,
+        qtd: 0,
+        price: Number(closedPrice.toFixed(2)),
+        value: 0,
+      });
+
+      await this.positionHistoryService.addNewPositionHistory(
+        currentPosition.userId,
+        createPositionDTO.asset,
+      );
 
       return await this.savePosition({
-        id: currentPosition.id,
         qtd: Math.abs(newQtd),
-        price: Number(newPrice.toFixed(2)),
+        price: Number(newOpenedPrice.toFixed(2)),
         value: Number(newValue.toFixed(2)),
         type: orderType,
+        userId: currentPosition.userId,
+        asset: currentPosition.asset,
+        market: currentPosition.market,
       });
     }
   }
@@ -178,5 +202,9 @@ export class PositionService {
         { cause: new Error(error), description: error.message },
       );
     });
+  }
+
+  public async deletePosition(positionId: number) {
+    return await this.positionRepository.delete(positionId);
   }
 }
