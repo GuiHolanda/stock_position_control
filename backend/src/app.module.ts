@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './guards/roles.guards';
+import { PositionHistoryModule } from './position_history/position_history.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { RolesGuard } from './guards/roles.guards';
     PositionModule,
     AuthModule,
     JwtModule,
+    PositionHistoryModule,
   ],
   controllers: [],
   providers: [
