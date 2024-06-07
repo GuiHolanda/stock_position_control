@@ -4,12 +4,9 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { PositionEntity } from '../entities/position.entity';
 import { Repository } from 'typeorm';
 import { CreatePositionDTO } from '../dtos/createPosition.dto';
-import {
-  ORDER_TYPE_BUY,
-  ORDER_TYPE_SELL,
-  POSITION_STATUS_CLOSED,
-  POSITION_STATUS_OPENED,
-} from '../../utils/constants';
+import { ORDER_TYPE_BUY, ORDER_TYPE_SELL } from '../../utils/constants';
+import { PositionHistoryService } from '../../position_history/position_history.service';
+import { ProfitAndLossesService } from '../../profit_and_losses/profit_and_losses.service';
 
 const currentPositionMock: PositionEntity = {
   id: 1,
@@ -17,7 +14,6 @@ const currentPositionMock: PositionEntity = {
   asset: 'PETR4',
   type: ORDER_TYPE_BUY,
   market: 'Mercado a Vista',
-  status: POSITION_STATUS_OPENED,
   qtd: 500,
   price: 22,
   value: 11000,
@@ -48,6 +44,20 @@ describe('PositionService', () => {
             save: jest.fn().mockResolvedValue(currentPositionMock),
           },
         },
+        {
+          provide: PositionHistoryService,
+          useValue: {
+            addNewPositionHistory: jest
+              .fn()
+              .mockResolvedValue(currentPositionMock),
+          },
+        },
+        {
+          provide: ProfitAndLossesService,
+          useValue: {
+            saveProfitOrLoss: jest.fn().mockResolvedValue(currentPositionMock),
+          },
+        },
       ],
     }).compile();
 
@@ -74,7 +84,7 @@ describe('PositionService', () => {
       id: currentPositionMock.id,
       price: 21.63,
       qtd: 800,
-      value: 17300,
+      value: 17304,
     });
   });
 
@@ -113,7 +123,6 @@ describe('PositionService', () => {
       id: currentPositionMock.id,
       qtd: 0,
       value: 0,
-      status: POSITION_STATUS_CLOSED,
     });
   });
 
@@ -129,12 +138,23 @@ describe('PositionService', () => {
 
     await service.updateCurrentPosition(newOrder, currentPositionMock);
 
-    expect(saveSpy).toHaveBeenCalledWith({
+    expect(saveSpy).toHaveBeenNthCalledWith(1, {
       id: currentPositionMock.id,
-      price: 23.85,
-      qtd: 300,
-      value: 7153.85,
-      type: ORDER_TYPE_SELL,
+      price: currentPositionMock.price,
+      qtd: 0,
+      value: 0,
+    });
+
+    const newQtd = newOrder.qtd - currentPositionMock.qtd;
+
+    expect(saveSpy).toHaveBeenNthCalledWith(2, {
+      price: newOrder.price,
+      qtd: newQtd,
+      value: newOrder.price * newQtd,
+      type: newOrder.type,
+      userId: currentPositionMock.userId,
+      asset: currentPositionMock.asset,
+      market: currentPositionMock.market,
     });
   });
 
@@ -177,7 +197,6 @@ describe('PositionService', () => {
       id: currentPositionMock.id,
       qtd: 0,
       value: 0,
-      status: POSITION_STATUS_CLOSED,
     });
   });
 
@@ -195,12 +214,23 @@ describe('PositionService', () => {
       type: ORDER_TYPE_SELL,
     });
 
-    expect(saveSpy).toHaveBeenCalledWith({
+    expect(saveSpy).toHaveBeenNthCalledWith(1, {
       id: currentPositionMock.id,
-      price: 23.85,
-      qtd: 300,
-      value: 7153.85,
-      type: ORDER_TYPE_BUY,
+      price: currentPositionMock.price,
+      qtd: 0,
+      value: 0,
+    });
+
+    const newQtd = newOrder.qtd - currentPositionMock.qtd;
+
+    expect(saveSpy).toHaveBeenNthCalledWith(2, {
+      price: newOrder.price,
+      qtd: newQtd,
+      value: newOrder.price * newQtd,
+      type: newOrder.type,
+      userId: currentPositionMock.userId,
+      asset: currentPositionMock.asset,
+      market: currentPositionMock.market,
     });
   });
 });
