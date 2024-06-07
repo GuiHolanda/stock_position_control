@@ -205,6 +205,15 @@ export class PositionService {
   }
 
   public async deletePosition(positionId: number) {
-    return await this.positionRepository.delete(positionId);
+    return await this.positionRepository.delete(positionId).catch((error) => {
+      console.error(
+        `Error deleting position with id: ${positionId}`,
+        error.message,
+      );
+      throw new NotFoundException(
+        `An error occurred while deleting the position with id: ${positionId}`,
+        { cause: new Error(error), description: error.message },
+      );
+    });
   }
 }
