@@ -35,4 +35,14 @@ export class PositionHistoryService {
 
     return newCurrentPosition;
   }
+
+  async getLastPositionHistoryByUserIdAndAsset(
+    userId: number,
+    asset: string,
+  ): Promise<PositionHistoryEntity> {
+    return await this.positionHistoryRepository.findOne({
+      where: { userId, asset },
+      order: { createdAt: 'DESC' },
+    });
+  }
 }

@@ -11,6 +11,7 @@ import { Repository } from 'typeorm';
 import { CreatePositionDTO } from './dtos/createPosition.dto';
 import { ORDER_TYPE_BUY, ORDER_TYPE_SELL } from '../utils/constants';
 import { PositionHistoryService } from '../position_history/position_history.service';
+import { ProfitAndLossesService } from '../profit_and_losses/profit_and_losses.service';
 
 interface SavePosition {
   id?: number;
@@ -31,6 +32,8 @@ export class PositionService {
 
     @Inject(forwardRef(() => PositionHistoryService))
     private readonly positionHistoryService: PositionHistoryService,
+
+    private readonly profitAndLossService: ProfitAndLossesService,
   ) {}
 
   public async createPosition(
@@ -116,6 +119,11 @@ export class PositionService {
       createPositionDTO.asset,
     );
 
+    await this.profitAndLossService.saveProfitOrLoss(
+      currentPosition,
+      createPositionDTO,
+    );
+
     return savedPosition;
   }
 
@@ -127,8 +135,10 @@ export class PositionService {
     const { qtd: orderQuantity, price: orderPrice } = createPositionDTO;
 
     const newQtd = currentQuantity + orderQuantity;
-    const newValue = currentValue + orderPrice * orderQuantity;
-    const newPrice = Number((newValue / newQtd).toFixed(2));
+    const newPrice = Number(
+      ((currentValue + orderPrice * orderQuantity) / newQtd).toFixed(2),
+    );
+    const newValue = newPrice * newQtd;
 
     return await this.savePosition({
       id: currentPosition.id,

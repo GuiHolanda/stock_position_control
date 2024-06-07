@@ -7,10 +7,12 @@ import {
   JoinColumn,
   OneToMany,
   ManyToOne,
+  OneToOne,
 } from 'typeorm';
 import { UserEntity } from '../../user/entities/user.entity';
 import { OrderEntity } from '../../order/entities/order.entity';
 import { PositionEntity } from '../../position/entities/position.entity';
+import { ProfitsAndLossesEntity } from '../../profit_and_losses/entities/profit_and_lossees.entity';
 
 @Entity({ name: 'position_history' })
 export class PositionHistoryEntity {
@@ -75,6 +77,9 @@ export class PositionHistoryEntity {
   )
   @JoinColumn({ name: 'current_position_id', referencedColumnName: 'id' })
   currentPosition?: PositionEntity;
+
+  @OneToOne(() => ProfitsAndLossesEntity, (PL) => PL.position_history)
+  profitsAndLosses?: ProfitsAndLossesEntity;
 
   @OneToMany(() => OrderEntity, (order) => order.position)
   orders?: OrderEntity[];
