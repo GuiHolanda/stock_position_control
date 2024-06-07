@@ -5,7 +5,7 @@ export class InsertGuilhermeInUser1716655632492 implements MigrationInterface {
     queryRunner.query(`
         INSERT INTO public."users"(
             name, email, role, password)
-            VALUES ('guilherme holanda', 'gholanda04@gmail.com', 'admin', '$2b$10$BhaMKrzUdPJFaHLcdvls7.lFMHojH9/sG/jwrp.Is0YXIlpBe4gI.');
+            VALUES ('guilherme holanda', 'gholanda04@gmail.com', 'admin', '$2b$10$fICW2ycLfgxv5zVcyp7EquYS1HNXEEyhJrZHbLYXv2PW.GBGejXvG');
     `);
   }
 
