@@ -45,4 +45,10 @@ export class PositionHistoryService {
       order: { createdAt: 'DESC' },
     });
   }
+
+  async getPositionHistoryByUserId(
+    userId: number,
+  ): Promise<PositionHistoryDTO[]> {
+    return await this.positionHistoryRepository.find({ where: { userId } });
+  }
 }
