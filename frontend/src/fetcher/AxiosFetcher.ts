@@ -30,7 +30,6 @@ export async function doPost<T, D>(
   configuration: AxiosRequestConfig = {}
 ): Promise<AxiosResponse<T>> {
   addAuthorizationHeader(authorizationTypeRequired);
-  await addCsrfTokenHeader(url);
   return clientInstance.post<T, AxiosResponse<T>, D>(url, data, configuration);
 }
 

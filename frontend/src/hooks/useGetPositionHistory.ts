@@ -3,7 +3,7 @@ import { getPositionHistory } from "../api/getPositionHistory";
 
 export const useGetPositionHistory = () => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["useSearchItemDetail"],
+    queryKey: ["useGetPositionHistory"],
     queryFn: () => getPositionHistory(),
   });
 
