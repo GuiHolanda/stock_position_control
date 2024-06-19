@@ -9,12 +9,12 @@ const AuthenticationPage = () => {
   const mode = searchParams.get("mode");
   return (
     <>
-      {mode === "login" ? (
-        <LoginForm />
+      {mode === "reset" ? (
+        <ResetPasswordForm />
       ) : mode === "signup" ? (
         <SignupForm />
       ) : (
-        <ResetPasswordForm />
+        <LoginForm />
       )}
     </>
   );

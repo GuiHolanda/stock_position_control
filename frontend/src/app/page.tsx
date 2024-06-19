@@ -1,11 +1,10 @@
 "use client";
 
 import { CustomHeader } from "../components/CustomHeader";
-import { useGetPositionHistory } from "../hooks/useGetPositionHistory";
+import { useGetPositionHistory } from "../shared/hooks/useGetPositionHistory";
 
 export default function Page() {
   const { data } = useGetPositionHistory();
-  console.log("data", data);
 
   return (
     <>

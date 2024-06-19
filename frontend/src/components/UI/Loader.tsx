@@ -3,7 +3,7 @@ export const Loader = ({ className }: { className?: string }) => {
     <>
       <svg
         aria-hidden="true"
-        className={`mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primary ${
+        className={`text-gray-200 animate-spin dark:text-gray-600 fill-primary ${
           className ? className : "w-4 h-4"
         }`}
         viewBox="0 0 100 101"

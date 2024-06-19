@@ -52,7 +52,7 @@ export const ResetPasswordForm = () => {
         Reset password
       </button>
       <div className="flex flex-col gap-1 text-center underline underline-offset-2 text-light-gray text-xs">
-        <Link href="?mode=login">Já possui conta ? Faça o login aqui</Link>
+        <Link href="/auth">Já possui conta ? Faça o login aqui</Link>
       </div>
     </FormGroup.Root>
   );
