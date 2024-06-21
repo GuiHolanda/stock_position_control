@@ -29,8 +29,13 @@ export class AuthService {
       throw new NotFoundException('Invalid email or password');
     }
 
+    const payload = {
+      ...new LoginPayload(user),
+      expirationDate: new Date(Date.now() + 60 * 1000),
+    };
+
     return {
-      accessToken: this.jwtService.sign({ ...new LoginPayload(user) }),
+      accessToken: this.jwtService.sign(payload),
       user: new ReturnUserDTO(user),
     };
   }

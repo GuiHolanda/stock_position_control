@@ -35,7 +35,7 @@ export class UserController {
     );
   }
 
-  @Roles(UserType.Admin)
+  @Roles(UserType.User, UserType.Admin)
   @Get('/:userId')
   async getUserById(@Param('userId') userId: number): Promise<ReturnUserDTO> {
     const user = await this.userService.getUserWithRelations(userId);
