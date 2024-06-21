@@ -1,22 +1,35 @@
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FormGroup } from "../UI/FormGroup";
 import { InputGroup } from "../UI/InputGroup";
 import { Loader } from "../UI/Loader";
 import { useLogin } from "../../shared/hooks/useLogin";
+import { authenticate } from "../../app/lib/actions";
+import { AxiosError } from "axios";
+import { DefaultResponseError } from "../../shared/types/DefaultResponseError.type";
 
 export const LoginForm = () => {
   const emailInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
-  const { loginMethod, isLoading, error } = useLogin();
 
-  function formSubmitHandler(event: React.FormEvent) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(
+    undefined
+  );
+
+  async function formSubmitHandler(event: React.FormEvent) {
     event.preventDefault();
     const formData = {
       email: emailInputRef.current!.value,
       password: passwordInputRef.current!.value,
     };
-    loginMethod(formData);
+
+    setIsLoading(true);
+    setErrorMessage(undefined);
+    await authenticate(formData).catch(() => {
+      setErrorMessage("Invalid login or password");
+    });
+    setIsLoading(false);
   }
 
   return (
@@ -25,7 +38,7 @@ export const LoginForm = () => {
       onSubmit={formSubmitHandler}
     >
       <FormGroup.Section>
-        <FormGroup.Label htmlFor="email">Seu e-mail</FormGroup.Label>
+        <FormGroup.Label htmlFor="email">E-mail</FormGroup.Label>
         <InputGroup.Root>
           <InputGroup.Input
             ref={emailInputRef}
@@ -39,7 +52,7 @@ export const LoginForm = () => {
       </FormGroup.Section>
 
       <FormGroup.Section>
-        <FormGroup.Label htmlFor="email">Sua senha</FormGroup.Label>
+        <FormGroup.Label htmlFor="email">Senha</FormGroup.Label>
         <InputGroup.Root>
           <InputGroup.Input
             ref={passwordInputRef}
@@ -52,8 +65,8 @@ export const LoginForm = () => {
         </InputGroup.Root>
       </FormGroup.Section>
 
-      {!isLoading && error && (
-        <p className="text-red-500 text-xs text-center">{error.message}</p>
+      {!isLoading && errorMessage && (
+        <p className="text-red-500 text-xs text-center">{errorMessage}</p>
       )}
 
       <button
