@@ -28,6 +28,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import Logo from "./UI/Logo";
+import { CustomPopoverGroup } from "./UI/PopoverGroup";
 
 const products = [
   {
@@ -79,13 +80,37 @@ export const CustomHeader = () => {
         className="mx-auto flex items-center gap-4 p-6 md:px-8"
         aria-label="Global"
       >
-        <div className="flex flex-1 md:flex-none">
+        <div className="flex flex-1 lg:flex-none">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Logo width={192} height={48} className="-ms-8" />
+            <Logo width={192} height={48} className="-ms-6" />
           </a>
         </div>
-        <div className="flex md:hidden">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-12 lg:grow">
+          <CustomPopoverGroup buttonText="Pra você" />
+
+          <a
+            href="/market"
+            className="font-semibold text-preto_pleno hover:scale-105 hover:text-azul_sereno"
+          >
+            Para sua empresa
+          </a>
+
+          <CustomPopoverGroup buttonText="Conheça a Veneza" />
+        </PopoverGroup>
+        <a
+          href="/auth"
+          className="hidden xl:flex text-azul_sereno border-azul_sereno font-semibold border px-6 py-3 rounded-md hover:scale-105 hover:text-azul_sereno"
+        >
+          Fale conosco
+        </a>
+        <a
+          href="/auth"
+          className=" bg-azul_sereno text-cinza_ameno font-semibold border px-6 py-3 rounded-md hover:scale-105"
+        >
+          Abra sua conta <span aria-hidden="true">&rarr;</span>
+        </a>
+        <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -95,37 +120,9 @@ export const CustomHeader = () => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden md:flex md:gap-x-6">
-          <a
-            href="/features"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Features
-          </a>
-          <a
-            href="/market"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Marketplace
-          </a>
-          <a
-            href="/company"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Company
-          </a>
-        </div>
-        <div className="hidden md:flex md:flex-1 md:justify-end">
-          <a
-            href="/auth"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
       </nav>
       <Dialog
-        className="md:hidden"
+        className="lg:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >

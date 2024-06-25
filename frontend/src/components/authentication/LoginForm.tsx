@@ -3,10 +3,7 @@ import { useRef, useState } from "react";
 import { FormGroup } from "../UI/FormGroup";
 import { InputGroup } from "../UI/InputGroup";
 import { Loader } from "../UI/Loader";
-import { useLogin } from "../../shared/hooks/useLogin";
 import { authenticate } from "../../app/lib/actions";
-import { AxiosError } from "axios";
-import { DefaultResponseError } from "../../shared/types/DefaultResponseError.type";
 
 export const LoginForm = () => {
   const emailInputRef = useRef<HTMLInputElement>(null);
@@ -71,7 +68,7 @@ export const LoginForm = () => {
 
       <button
         type="submit"
-        className="flex items-center bg-black px-4 py-2 w-full rounded-lg text-white font-semibold hover:scale-[105%]"
+        className="flex items-center bg-azul_sereno px-4 py-2 w-full rounded-lg text-white font-semibold hover:scale-[105%]"
       >
         {isLoading && <Loader />}
         <p className="flex-grow">Login</p>
