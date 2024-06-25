@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { createUser } from "../api/createUser";
-import { CreateUser } from "../types/CreateUser.type";
+import { CreateUser } from "../types/User.types";
 import { useRouter } from "next/navigation";
 import { DefaultResponseError } from "../types/DefaultResponseError.type";
 import { AxiosError } from "axios";
+import { LOGIN_PAGE } from "../constants/endpoints";
 
 export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +19,7 @@ export const useSignup = () => {
     await createUser(body)
       .then((result) => {
         setError(undefined);
-        router.push("/auth");
+        router.push(LOGIN_PAGE);
         return result;
       })
       .catch((error) => {

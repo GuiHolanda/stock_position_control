@@ -1,3 +1,9 @@
+export interface CreateUser {
+  email: string;
+  name: string;
+  password: string;
+}
+
 export interface LoggedInUser {
   accessToken: string;
   user: {

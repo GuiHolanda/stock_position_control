@@ -1,13 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { redirect } from "next/navigation";
 import { decrypt } from "./shared/helpers/encrypting";
 import { cookies } from "next/headers";
 import { getUserById } from "./shared/api/getUserById";
-import { goToAuth } from "./app/lib/actions";
+import { HOME, LOGIN_PAGE } from "./shared/constants/endpoints";
 
 export async function middleware(request: NextRequest) {
-  console.log("ENTROU NO MIDDLEWARE");
-
   const accessToken = cookies().get("accessToken")?.value;
   let user = undefined;
 
@@ -20,14 +17,11 @@ export async function middleware(request: NextRequest) {
       });
     }
   }
-  if (user && !(request.nextUrl.pathname === "/")) {
-    console.log("MIDDLEWARE -> REDIRECTING TO HOME");
-
-    return Response.redirect(new URL("/", request.url));
+  if (user && !(request.nextUrl.pathname === HOME)) {
+    return Response.redirect(new URL(HOME, request.url));
   }
-  if (!user && !request.nextUrl.pathname.startsWith("/auth")) {
-    console.log("MIDDLEWARE -> REDIRECTING TO AUTH");
-    return NextResponse.rewrite(new URL("/auth", request.url));
+  if (!user && !request.nextUrl.pathname.startsWith(LOGIN_PAGE)) {
+    return NextResponse.rewrite(new URL(LOGIN_PAGE, request.url));
   }
 }
 

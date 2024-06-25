@@ -1,5 +1,5 @@
-import { doGet } from "../fetcher/AxiosFetcher";
-import { ReturnedUser } from "../types/LoggIn.type";
+import { doGet } from "../helpers/AxiosFetcher";
+import { ReturnedUser } from "../types/User.types";
 
 export const getUserById = async (
   userId: number,

@@ -1,11 +1,9 @@
 import { login } from "../api/login";
-import { LoggedInUser, LoginData } from "../types/LoggIn.type";
 import { useState } from "react";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { DefaultResponseError } from "../types/DefaultResponseError.type";
-import { encrypt } from "../helpers/encrypting";
-import { setAuthorizationToken } from "../helpers/auth";
+import { LoginData, LoggedInUser } from "../types/User.types";
 
 export const useLogin = () => {
   const router = useRouter();
@@ -20,7 +18,6 @@ export const useLogin = () => {
     await login(body)
       .then(async (result: LoggedInUser) => {
         setError(undefined);
-        setAuthorizationToken(JSON.stringify(result.accessToken));
         router.push("/");
         return result;
       })
