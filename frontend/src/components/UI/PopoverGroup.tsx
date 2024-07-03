@@ -59,7 +59,7 @@ interface CustomPopoverGroupProps {
 export const CustomPopoverGroup = (props: CustomPopoverGroupProps) => {
   return (
     <Popover className="relative">
-      <PopoverButton className="flex items-center gap-x-1 font-semibold text-preto_pleno hover:scale-105 hover:text-azul_sereno">
+      <PopoverButton className="flex items-center gap-x-1 font-semibold text-preto_pleno hover:scale-105 hover:text-azul_sereno focus:outline-none">
         {props.buttonText}
         <ChevronDownIcon
           className="h-5 w-5 flex-none text-gray-400"

@@ -19,6 +19,11 @@ const config: Config = {
         azul_sereno: "#005779",
         cinza_ameno: "#d9dbda",
       },
+      fontFamily: {
+        montserrat: ["Montserrat"],
+        lato: ["Lato"],
+        garamond: ["Garamond"],
+      },
     },
   },
   plugins: [],

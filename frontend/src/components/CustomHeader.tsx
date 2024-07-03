@@ -75,7 +75,7 @@ export const CustomHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white">
+    <header className="bg-white fixed top-0 w-full">
       <nav
         className="mx-auto flex items-center gap-4 p-6 md:px-8"
         aria-label="Global"
