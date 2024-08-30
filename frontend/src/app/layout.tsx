@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "./QueryProvider";
+import { CustomHeader } from "../components/CustomHeader";
+import { CustomFooter } from "../components/CustomFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <QueryProvider>
-          <main className="h-screen">{children}</main>
+          <main className="flex flex-col h-screen">
+            <CustomHeader />
+            <div className="mt-[98px]">{children}</div>
+            <CustomFooter />
+          </main>
         </QueryProvider>
       </body>
     </html>

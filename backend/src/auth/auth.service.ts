@@ -31,7 +31,7 @@ export class AuthService {
 
     const payload = {
       ...new LoginPayload(user),
-      expirationDate: new Date(Date.now() + 60 * 1000),
+      expirationDate: new Date(Date.now() + 60 * 30 * 1000),
     };
 
     return {

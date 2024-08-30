@@ -29,6 +29,7 @@ import {
 } from "@heroicons/react/20/solid";
 import Logo from "./UI/Logo";
 import { CustomPopoverGroup } from "./UI/PopoverGroup";
+import { OpenAccountButton } from "./OpenAccountButton";
 
 const products = [
   {
@@ -75,18 +76,18 @@ export const CustomHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white fixed top-0 w-full">
+    <header className="bg-white fixed top-0 w-full z-50">
       <nav
         className="mx-auto flex items-center gap-4 p-6 md:px-8"
         aria-label="Global"
       >
         <div className="flex flex-1 lg:flex-none">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <Logo width={192} height={48} className="-ms-6" />
           </a>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12 lg:grow">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-12 lg:grow md:pl-16">
           <CustomPopoverGroup buttonText="Pra você" />
 
           <a
@@ -104,12 +105,7 @@ export const CustomHeader = () => {
         >
           Fale conosco
         </a>
-        <a
-          href="/auth"
-          className=" bg-azul_sereno text-cinza_ameno font-semibold border px-6 py-3 rounded-md hover:scale-105"
-        >
-          Abra sua conta <span aria-hidden="true">&rarr;</span>
-        </a>
+        <OpenAccountButton hasIcon />
         <div className="flex lg:hidden">
           <button
             type="button"
