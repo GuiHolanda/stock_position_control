@@ -1,11 +1,13 @@
+"use client";
 import Image from "next/image";
 import Grifo from "../components/Grifo";
 import { OpenAccountButton } from "../components/OpenAccountButton";
 import { DefaultPageSection } from "../components/UI/DefaultPageSection";
 import { CardLayout01 } from "../components/UI/CardLayout01";
 import { ChatBubbleLeftRightIcon } from "@heroicons/react/20/solid";
+import Carousel from "../components/Carousel";
 
-export default async function Page() {
+export default function Page() {
   return (
     <>
       <DefaultPageSection.Section className="bg-home-page-texture bg-cover h-[796px] rounded-br-[48px]">
@@ -186,6 +188,43 @@ export default async function Page() {
                 precisa para alcançar o próximo patamar.
               </CardLayout01.Text>
             </CardLayout01.Frame>
+          </div>
+        </DefaultPageSection.Div>
+      </DefaultPageSection.Section>
+
+      <DefaultPageSection.Section className="bg-gradient-to-r from-azul_sereno from-30% to-cinza_petroleo py-32">
+        <DefaultPageSection.Div>
+          <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-4">
+              <p className="font-bold text-xl font-montserrat text-yellow-200">
+                Depoimentos
+              </p>
+              <h2 className="font-bold text-5xl font-montserrat text-white">
+                Experiências dos <br /> nossos clientes
+              </h2>
+            </div>
+            <Carousel
+              slides={[
+                {
+                  imgUrl: "/img/AdobeStock_302640929_Preview.jpeg",
+                  text: "“Depois que eu conheci a Veneza, eu descobri uma forma inteligente de criar uma renda passiva. Inteligente e segura. Tenho um relacionamento muito próximo, e isso nos dá uma segurança maior para investir. Até amigos que eu tenho, hoje são clientes, porque eu indiquei essas pessoas para Veneza, e tenho total confiança.”",
+                  clientName: "José de Almeida",
+                  clientDescription: "Engenheiro e Cliente Veneza",
+                },
+                {
+                  imgUrl: "/img/AdobeStock_304068536_Preview.jpeg",
+                  text: "“Depois que eu conheci a Veneza, eu descobri uma forma inteligente de criar uma renda passiva. Inteligente e segura. Tenho um relacionamento muito próximo, e isso nos dá uma segurança maior para investir. Até amigos que eu tenho, hoje são clientes, porque eu indiquei essas pessoas para Veneza, e tenho total confiança.”",
+                  clientName: "João das Cruzes",
+                  clientDescription: "Médico e Cliente Veneza a 15 anos",
+                },
+                {
+                  imgUrl: "/img/pexels-edmond-dantes-4344860.jpg",
+                  text: "“Depois que eu conheci a Veneza, eu descobri uma forma inteligente de criar uma renda passiva. Inteligente e segura. Tenho um relacionamento muito próximo, e isso nos dá uma segurança maior para investir. Até amigos que eu tenho, hoje são clientes, porque eu indiquei essas pessoas para Blue3, e tenho total confiança.”",
+                  clientName: "Arthur Santos",
+                  clientDescription: "Empresário e Cliente Veneza",
+                },
+              ]}
+            />
           </div>
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
