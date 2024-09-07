@@ -8,7 +8,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 export const InputRoot = (props: ChildrenProps) => {
   return (
-    <div className="flex items-center px-4 py-3 rounded-lg border gap-3 focus-within:ring-2 ring-primary">
+    <div className="flex items-center px-4 py-3 rounded-lg border gap-3 focus-within:ring-2 ring-primary bg-white">
       {props.children}
     </div>
   );

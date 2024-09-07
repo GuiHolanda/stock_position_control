@@ -84,7 +84,7 @@ export const CustomHeader = () => {
         <div className="flex flex-1 lg:flex-none">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Logo width={192} height={48} className="-ms-6" />
+            <Logo width={192} height={48} color="colored" />
           </a>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12 lg:grow md:pl-16">
