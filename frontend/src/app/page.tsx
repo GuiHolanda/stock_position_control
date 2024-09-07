@@ -22,12 +22,12 @@ export default function Page() {
           <div className="flex flex-col gap-8 ml-20 mt-40">
             <div className="w-8 h-2 bg-white rounded-md"></div>
             <div className="flex flex-col gap-8 text-cinza_ameno font-montserrat z-10">
-              <h2 className="font-bold text-5xl font-montserrat">
+              <h2 className="font-extrabold text-5xl font-montserrat">
                 Investir é cuidar
                 <br /> de você, da sua família
                 <br /> e do seu patrimônio
               </h2>
-              <p className="font-sans">
+              <p className="font-roboto">
                 Nós somos a Veneza Investimentos, um{" "}
                 <b>
                   ecossistema de soluções

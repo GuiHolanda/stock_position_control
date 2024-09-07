@@ -1,4 +1,6 @@
+import { Montserrat } from "next/font/google";
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -13,6 +15,8 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "home-page-texture": "url('/img/home-page-texture.jpeg')",
+        "open-account-texture": "url('/img/open-account-texture.jpg')",
+        "open-account-house": "url('/img/open-account-house-image.jpeg')",
       },
       colors: {
         preto_pleno: "#231f20",
@@ -21,10 +25,12 @@ const config: Config = {
         cinza_ameno: "#d9dbda",
       },
       fontFamily: {
-        montserrat: ["Montserrat", "sans-serif"],
+        montserrat: ["var(--font-montserrat)"],
         lato: ["Lato"],
         garamond: ["Garamond"],
         roboto: ["Roboto", "sans-serif"],
+        sans: ["var(--font-opensans)"],
+        mono: ["var(--font-roboto-mono)"],
       },
     },
   },
