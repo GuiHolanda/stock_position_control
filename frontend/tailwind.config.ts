@@ -17,6 +17,7 @@ const config: Config = {
         "home-page-texture": "url('/img/home-page-texture.jpeg')",
         "open-account-texture": "url('/img/open-account-texture.jpg')",
         "open-account-house": "url('/img/open-account-house-image.jpeg')",
+        "for-company-background": "url('/img/for-company-background.jpg')",
       },
       colors: {
         preto_pleno: "#231f20",

@@ -91,7 +91,7 @@ export const CustomHeader = () => {
           <CustomPopoverGroup buttonText="Pra você" />
 
           <a
-            href="/market"
+            href="/para-sua-empresa"
             className="font-semibold text-preto_pleno hover:scale-105 hover:text-azul_sereno"
           >
             Para sua empresa
