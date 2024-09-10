@@ -1,11 +1,18 @@
 import { HTMLAttributes, ReactNode } from "react";
 
 interface DefaultPageSectionProps extends HTMLAttributes<HTMLElement> {
-  divClasses?: string;
+  isFirstSection?: boolean;
 }
 
-export const PageSection = (props: HTMLAttributes<HTMLElement>) => {
-  return <section className={props?.className}>{props.children}</section>;
+export const PageSection = (props: DefaultPageSectionProps) => {
+  const sectionSize = props.isFirstSection
+    ? `w-screen h-[calc(100svh-162px)]`
+    : `w-screen`;
+  return (
+    <section className={`${sectionSize} ${props?.className}`}>
+      {props.children}
+    </section>
+  );
 };
 
 export const SectionDiv = (props: HTMLAttributes<HTMLElement>) => {

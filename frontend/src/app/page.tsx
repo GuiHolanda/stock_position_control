@@ -10,11 +10,14 @@ import Carousel from "../components/Carousel";
 export default function Page() {
   return (
     <>
-      <DefaultPageSection.Section className="bg-home-page-texture bg-cover h-[796px] rounded-br-[48px]">
+      <DefaultPageSection.Section
+        isFirstSection
+        className="bg-home-page-texture bg-cover rounded-br-[48px]"
+      >
         <DefaultPageSection.Div className="relative">
           <Grifo
             fill="#0d0d0d"
-            height={820}
+            height={810}
             width={996}
             opacity={"50%"}
             className="absolute -right-8 -top-4"

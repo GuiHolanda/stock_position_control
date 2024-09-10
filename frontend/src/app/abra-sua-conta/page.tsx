@@ -17,7 +17,10 @@ import Logo from "../../components/UI/Logo";
 const OpenYourAccountPage = () => {
   return (
     <>
-      <DefaultPageSection.Section className=" bg-open-account-texture bg-opacity-10 bg-cover h-[796px]">
+      <DefaultPageSection.Section
+        isFirstSection
+        className="bg-open-account-texture bg-cover"
+      >
         <div className="flex items-center w-full h-full bg-white bg-opacity-30">
           <DefaultPageSection.Div className="gap-8 flex-col">
             <div className="w-8 h-2 bg-white rounded-md"></div>
