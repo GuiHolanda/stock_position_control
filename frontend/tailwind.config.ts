@@ -1,12 +1,14 @@
 import { Montserrat } from "next/font/google";
 import type { Config } from "tailwindcss";
 const defaultTheme = require("tailwindcss/defaultTheme");
+const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -18,6 +20,8 @@ const config: Config = {
         "open-account-texture": "url('/img/open-account-texture.jpg')",
         "open-account-house": "url('/img/open-account-house-image.jpeg')",
         "for-company-background": "url('/img/for-company-background.jpg')",
+        "new-horizon": "url('/img/new_horizons.jpg')",
+        "rend-variavel": "url('/img/rend-variavel.jpeg')",
       },
       colors: {
         preto_pleno: "#231f20",
@@ -35,6 +39,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()],
 };
 export default config;

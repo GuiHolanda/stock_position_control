@@ -13,6 +13,41 @@ import { FormGroup } from "../../components/UI/FormGroup";
 import { InputGroup } from "../../components/UI/InputGroup";
 import { Loader } from "../../components/UI/Loader";
 import Logo from "../../components/UI/Logo";
+import { CustomText } from "../../components/UI/Texts";
+
+const stepsCard = [
+  {
+    title: "Passo 01",
+    text: "Preencha o formulário para abrir a sua conta gratuita e 100% online.",
+  },
+  {
+    title: "Passo 02",
+    text: "Nossa assessoria digital Conexão entrará em contato com você para dar o suporte inicial.",
+  },
+  {
+    title: "Passo 03",
+    text: "Vamos começar? Nosso time de assessores estará pronto para tornar sua jornada financeira segura e tranquila.",
+  },
+];
+
+const bigNumbers = [
+  {
+    title: "+500 milhões",
+    text: "sob custódia em ativos no Brasil e no Exterior",
+  },
+  {
+    title: "+1.000 clientes",
+    text: "contruindo o seu futuro com a gente",
+  },
+  {
+    title: "+10 profissionais",
+    text: "entre sócios e colaboradores",
+  },
+  {
+    title: "92 NPS",
+    text: "mostrando o alto nível de satisfação dos nossos clientes",
+  },
+];
 
 const OpenYourAccountPage = () => {
   return (
@@ -21,318 +56,178 @@ const OpenYourAccountPage = () => {
         isFirstSection
         className="bg-open-account-texture bg-cover"
       >
-        <div className="flex items-center w-full h-full bg-white bg-opacity-30">
-          <DefaultPageSection.Div className="gap-8 flex-col">
-            <div className="w-8 h-2 bg-white rounded-md"></div>
-            <div className="flex gap-8">
-              <div className="flex flex-col gap-8 max-w-lg">
-                <div className="flex flex-col gap-8  font-montserrat">
-                  <h2 className="font-bold text-5xl text-azul_sereno">
-                    Abra sua conta de <br /> investimento
-                  </h2>
-                  <p className="text-lg">
-                    Como um ecossistema de soluções financeiras feito por quem
-                    valoriza a sua história, somos o elo entre uma assessoria de
-                    investimentos especializada e o seu propósito de vida.
-                  </p>
-                </div>
-                <Logo
-                  width={192}
-                  height={48}
-                  className="-ms-3"
-                  color="colored"
-                />
+        <DefaultPageSection.Mask className="bg-white bg-opacity-30 py-8 md:py-16">
+          <DefaultPageSection.Div className="gap-y-4 md:gap-x-8 mx-auto">
+            <div className="col-span-12 lg:col-span-6 flex flex-col md:gap-8 my-auto">
+              <div className="flex flex-col gap-4 md:gap-8  font-montserrat">
+                <CustomText.Title
+                  fontSize="lg"
+                  maxWidth="md"
+                  className="text-azul_sereno font-bold"
+                >
+                  Abra sua conta de investimento
+                </CustomText.Title>
+                <CustomText.Paragraph fontSize="md" maxWidth="lg">
+                  Como um ecossistema de soluções financeiras feito por quem
+                  valoriza a sua história, somos o elo entre uma assessoria de
+                  investimentos especializada e o seu propósito de vida.
+                </CustomText.Paragraph>
               </div>
-              <FormGroup.Root className="flex-wrap gap-4 justify-end">
-                <div className="flex flex-wrap gap-4">
-                  <FormGroup.Section className="flex-grow">
-                    <FormGroup.Label htmlFor="name">
-                      Qual o seu <strong>nome ?</strong>
-                    </FormGroup.Label>
-                    <InputGroup.Root>
-                      <InputGroup.Input
-                        type="text"
-                        id="name"
-                        placeholder="Digite seu nome completo"
-                        autoComplete="name"
-                        required
-                      />
-                    </InputGroup.Root>
-                  </FormGroup.Section>
-                  <FormGroup.Section>
-                    <FormGroup.Label htmlFor="phone">
-                      Qual o seu <strong>telefone ?</strong>
-                    </FormGroup.Label>
-                    <InputGroup.Root>
-                      <InputGroup.Input
-                        type="text"
-                        id="phone"
-                        placeholder="Informe seu melhor telefone"
-                        required
-                        autoComplete="tel"
-                      />
-                    </InputGroup.Root>
-                  </FormGroup.Section>
-                  <FormGroup.Section className="flex-grow">
-                    <FormGroup.Label htmlFor="email">
-                      Qual o seu <strong>e-mail ?</strong>
-                    </FormGroup.Label>
-                    <InputGroup.Root>
-                      <InputGroup.Input
-                        type="email"
-                        id="email"
-                        placeholder="Digite seu email"
-                        autoComplete="email"
-                        required
-                      />
-                    </InputGroup.Root>
-                  </FormGroup.Section>
-                </div>
-                <div className="flex item gap-2 mr-auto">
-                  <input
-                    type="checkbox"
-                    name="createAccountPrivacyPolicyCheckBox"
+              <Logo
+                className="hidden lg:inline-block h-6 sm:h-12"
+                color="colored"
+              />
+            </div>
+            <FormGroup.Root className="col-span-12 lg:col-span-6 grid grid-cols-12 gap-y-4 place-content-center">
+              <FormGroup.Section className="col-span-12 md:col-span-6 md:mr-8">
+                <FormGroup.Label htmlFor="name">
+                  Qual o seu <strong>nome ?</strong>
+                </FormGroup.Label>
+                <InputGroup.Root>
+                  <InputGroup.Input
+                    type="text"
+                    id="name"
+                    placeholder="Digite seu nome completo"
+                    autoComplete="name"
+                    required
                   />
-                  <label
-                    htmlFor="createAccountPrivacyPolicyCheckBox"
-                    className="text-sm"
-                  >
+                </InputGroup.Root>
+              </FormGroup.Section>
+              <FormGroup.Section className="col-span-12 md:col-span-6">
+                <FormGroup.Label htmlFor="phone">
+                  Qual o seu <strong>telefone ?</strong>
+                </FormGroup.Label>
+                <InputGroup.Root>
+                  <InputGroup.Input
+                    type="text"
+                    id="phone"
+                    placeholder="Informe seu melhor telefone"
+                    required
+                    autoComplete="tel"
+                  />
+                </InputGroup.Root>
+              </FormGroup.Section>
+              <FormGroup.Section className="col-span-12">
+                <FormGroup.Label htmlFor="email">
+                  Qual o seu <strong>e-mail ?</strong>
+                </FormGroup.Label>
+                <InputGroup.Root>
+                  <InputGroup.Input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu email"
+                    autoComplete="email"
+                    required
+                  />
+                </InputGroup.Root>
+              </FormGroup.Section>
+              <div className="col-span-12 flex item gap-2 mr-auto">
+                <input
+                  type="checkbox"
+                  name="createAccountPrivacyPolicyCheckBox"
+                />
+                <label htmlFor="createAccountPrivacyPolicyCheckBox">
+                  <CustomText.Paragraph fontSize="xs" maxWidth="lg">
                     Ao continuar navegando, você está ciente da nossa Política
                     de Privacidade.
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="items-center bg-azul_sereno px-4 py-2 w-fit h-fit rounded-lg text-white hover:scale-[105%]"
-                >
-                  <p>Abrir minha conta</p>
-                </button>
-              </FormGroup.Root>
-            </div>
+                  </CustomText.Paragraph>
+                </label>
+              </div>
+              <OpenAccountButton className="col-span-12" />
+            </FormGroup.Root>
           </DefaultPageSection.Div>
-        </div>
+        </DefaultPageSection.Mask>
       </DefaultPageSection.Section>
 
       <DefaultPageSection.Section className="py-16">
-        <DefaultPageSection.Div className="flex-col items-center gap-8">
-          <div className="flex flex-col gap-3 items-center">
-            <div className="w-16 h-2 bg-gray-500 rounded-md"></div>
-            <h4 className="font-roboto text-lg">Abra sua conta</h4>
+        <DefaultPageSection.Div className="gap-y-4 md:gap-y-8 mx-auto">
+          <div className="col-span-12 flex flex-col gap-1 md:gap-3 items-center">
+            <div className="w-8 h-1 md:w-16 md:h-2 bg-gray-500 rounded-md"></div>
+            <CustomText.Paragraph>Abra sua conta</CustomText.Paragraph>
           </div>
-          <h2 className="font-montserrat text-3xl text-azul_sereno">
+          <CustomText.Title
+            maxWidth="xlg"
+            className="col-span-12 text-azul_sereno text-center mx-auto"
+          >
             Próximos passos para se tornar um cliente da Veneza Investimentos
-          </h2>
-          <div className="grid grid-cols-3 gap-8 divide-y">
-            <CardLayout01.Frame>
-              <div className="flex font-montserrat font-extrabold text-4xl text-white bg-azul_sereno border-4 border-black size-12 justify-center items-center rounded-full">
-                <p>1</p>
-              </div>
-              <CardLayout01.Title className="text-azul_sereno">
-                Passo 01
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                Preencha o formulário para abrir a sua conta gratuita e 100%
-                online.
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame>
-              <div className="flex font-montserrat font-extrabold text-4xl text-white border-4 border-black bg-azul_sereno size-12 justify-center items-center rounded-full">
-                <p>2</p>
-              </div>
-              <CardLayout01.Title className="text-azul_sereno">
-                Passo 02
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                Nossa assessoria digital Conexão entrará em contato com você
-                para dar o suporte inicial.
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame>
-              <div className="flex font-montserrat font-extrabold text-4xl text-white bg-azul_sereno size-12 border-4 border-black justify-center items-center rounded-full">
-                <p>3</p>
-              </div>
-              <CardLayout01.Title className="text-azul_sereno">
-                Passo 03
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                Vamos começar? Nosso time de assessores estará pronto para
-                tornar sua jornada financeira segura e tranquila.
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
+          </CustomText.Title>
+          <div className="col-span-12 flex flex-wrap gap-4 md:gap-8 justify-center">
+            {stepsCard.map((card, index) => (
+              <CardLayout01.Frame key={index}>
+                <CustomText.Paragraph
+                  fontSize="lg"
+                  className="text-azul_sereno font-bold"
+                >
+                  {card.title}
+                </CustomText.Paragraph>
+                <CustomText.Paragraph maxWidth="md" fontSize="sm">
+                  {card.text}
+                </CustomText.Paragraph>
+              </CardLayout01.Frame>
+            ))}
           </div>
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="py-16 bg-black">
-        <DefaultPageSection.Div className="flex-col items-center gap-8">
-          <h2 className="font-montserrat text-5xl text-white font-light">
-            Faixas de Assessoria
-          </h2>
-          <h4 className="font-roboto text-white text-center max-w-3xl">
-            Para um atendimento mais assertivo e alinhado com seu perfil de
-            investidor, as faixas de patrimônio são fundamentais para seleção do
-            seu assessor ou equipe que melhor atenderá seus objetivos.
-          </h4>
-          <div className="grid grid-cols-3 gap-8 mb-8">
-            <CardLayout01.Frame className="text-center bg-neutral-800 border-azul_sereno border-y-2">
-              <div>
-                <p className="uppercase text-azul_sereno tracking-widest  mb-4">
-                  menos de
-                </p>
-                <p className="text-3xl text-white font-extralight">
-                  R$ 300 mil
-                </p>
-              </div>
-              <CardLayout01.Title className="text-azul_sereno text-xl font-extralight">
-                Assessoria Estratégica
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                <ul className="flex flex-col items-center">
-                  <li className="flex gap-2 text-base text-white">
-                    <BeakerIcon className=" size-4" /> Suporte via Mesa
-                    Estratégica
-                  </li>
-                  <li className="flex gap-2 text-base text-white">
-                    <GlobeAltIcon className=" size-4" /> Plataforma pelo site ou
-                    app
-                  </li>
-                  <li className="flex gap-2 text-base text-white">
-                    <PhoneIcon className=" size-4" /> Atendimento por demanda
-                  </li>
-                </ul>
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame className="text-center bg-neutral-800 border-azul_sereno border-y-2">
-              <div>
-                <p className="uppercase text-azul_sereno tracking-widest  mb-4">
-                  mais de
-                </p>
-                <p className="text-3xl text-white font-extralight">
-                  R$ 300 mil
-                </p>
-              </div>
-              <CardLayout01.Title className="text-azul_sereno text-xl font-extralight">
-                Assessoria Esclusiva
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                <ul className="flex flex-col items-center">
-                  <li className="flex gap-2 text-base text-white">
-                    <CalendarDaysIcon className=" size-4" /> Contato mesal
-                  </li>
-                  <li className="flex gap-2 text-base text-white">
-                    <CheckBadgeIcon className=" size-4" /> Revisão bimestral
-                  </li>
-                  <li className="flex gap-2 text-base text-white">
-                    <PhoneIcon className=" size-4" /> Atendimento personalizado
-                  </li>
-                </ul>
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame className="text-center bg-neutral-800 border-yellow-500 border-y-2">
-              <div>
-                <p className="uppercase text-yellow-500 tracking-widest  mb-4">
-                  mais de
-                </p>
-                <p className="text-3xl text-white font-extralight">
-                  R$ 1 milhão
-                </p>
-              </div>
-              <CardLayout01.Title className="text-yellow-500 text-xl font-extralight">
-                Assessoria Private
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                <ul className="flex flex-col items-center">
-                  <li className="flex gap-2 text-base text-white">
-                    <CalendarDaysIcon className=" size-4" /> Contato mesal
-                  </li>
-                  <li className="flex gap-2 text-base text-white">
-                    <CheckBadgeIcon className=" size-4" /> Revisão bimestral
-                  </li>
-                  <li className="flex gap-2 text-base text-white">
-                    <StarIcon className=" size-4" /> Investidor qualificado
-                  </li>
-                </ul>
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
+      <DefaultPageSection.Section className="py-8 md:py-16">
+        <DefaultPageSection.Div className="gap-y-4 md:gap-y-8 mx-auto">
+          <div className="col-span-12 flex flex-col gap-1 md:gap-3 items-center mx-auto">
+            <div className="w-8 h-1 md:w-16 md:h-2 bg-gray-500 rounded-md"></div>
+            <CustomText.Paragraph fontSize="lg">
+              A Veneza Investimentos
+            </CustomText.Paragraph>
           </div>
-        </DefaultPageSection.Div>
-      </DefaultPageSection.Section>
-
-      <DefaultPageSection.Section className="py-16">
-        <DefaultPageSection.Div className="flex-col items-center gap-8">
-          <div className="flex flex-col gap-3 items-center">
-            <div className="w-16 h-2 bg-gray-500 rounded-md"></div>
-            <h4 className="font-roboto text-lg">A Veneza Investimentos</h4>
-          </div>
-          <h2 className="font-montserrat text-3xl text-azul_sereno">
+          <CustomText.Title
+            maxWidth="xlg"
+            className="col-span-12 text-azul_sereno text-center mx-auto"
+          >
             Por que investir com nossa assessoria?
-          </h2>
-          <div className="grid grid-cols-4 gap-8 divide-y mb-8">
-            <CardLayout01.Frame>
-              <CardLayout01.Title className="text-azul_sereno text-center">
-                <span className="text-5xl">+500</span> <br />
-                milhões
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                sob custódia em ativos no Brasil e no exterior
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame>
-              <CardLayout01.Title className="text-azul_sereno text-center">
-                <span className="text-5xl">+1.000</span> <br />
-                clientes
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                sob custódia em ativos no Brasil e no exterior
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame>
-              <CardLayout01.Title className="text-azul_sereno text-center">
-                <span className="text-5xl">+10</span> <br />
-                profissionais
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                sob custódia em ativos no Brasil e no exterior
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
-            <CardLayout01.Frame>
-              <CardLayout01.Title className="text-azul_sereno text-center">
-                <span className="text-5xl">+92</span> <br />
-                NPS
-              </CardLayout01.Title>
-              <CardLayout01.Text>
-                sob custódia em ativos no Brasil e no exterior
-              </CardLayout01.Text>
-            </CardLayout01.Frame>
+          </CustomText.Title>
+          <div className="col-span-12 flex flex-wrap justify-center gap-4 md:gap-8 divide-y mb-8">
+            {bigNumbers.map((card, index) => (
+              <CardLayout01.Frame key={index}>
+                <CustomText.Title
+                  fontSize="sm"
+                  className="text-azul_sereno text-center"
+                >
+                  {card.title.split(" ")[0]} <br /> {card.title.split(" ")[1]}
+                </CustomText.Title>
+                <CardLayout01.Text className="text-center">
+                  {card.text}
+                </CardLayout01.Text>
+              </CardLayout01.Frame>
+            ))}
           </div>
-          <Logo width={192} height={48} />
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className=" bg-open-account-house bg-cover bg-center back bg-opacity-10 h-[796px]">
-        <div className="flex items-center w-full h-full bg-black bg-opacity-50">
-          <DefaultPageSection.Div className="gap-8 flex-col">
-            <div className="flex flex-col gap-8 w-[1152px]">
+      <DefaultPageSection.Section className=" bg-open-account-house bg-cover bg-center bg-opacity-10 md:h-[796px]">
+        <DefaultPageSection.Mask className="from-black/85 to-black/5 py-8 md:py-16">
+          <DefaultPageSection.Div className="md:ml-32">
+            <div className="col-span-12 flex flex-col gap-4 md:gap-8">
               <div className="w-8 h-2 bg-white rounded-md"></div>
-              <div className="flex flex-col gap-8  font-montserrat">
-                <h2 className="font-bold text-5xl text-white w-full">
-                  Casa para <br /> os Seus Investimetnos.
-                  <br /> Assessoria para sua vida.
-                </h2>
-                <p className="font-roboto text-lg text-white max-w-lg">
+              <div className="flex flex-col gap-4 md:gap-8  font-montserrat">
+                <CustomText.Title
+                  fontSize="lg"
+                  maxWidth="lg"
+                  className="font-bold text-white"
+                >
+                  Casa para os Seus Investimetnos. Assessoria para sua vida.
+                </CustomText.Title>
+                <CustomText.Paragraph maxWidth="lg" className="text-white">
                   Queremos estar ao seu lado na construção de uma estratégia
                   mais segura e assertiva em qualquer momento, com as melhores
                   soluções em investimentos para você e financeiras para sua
                   empresa, além de planejamento patrimonial e sucessório.
-                </p>
+                </CustomText.Paragraph>
               </div>
-              <div className="flex gap-8 items-center">
-                <Logo width={208} height={64} className="-ms-3" color="white" />
+              <div className="flex gap-4 md:gap-8 items-center">
+                <Logo className="h-6 sm:h-12" color="white" />
                 <OpenAccountButton buttonStyle="secondary" />
               </div>
             </div>
           </DefaultPageSection.Div>
-        </div>
+        </DefaultPageSection.Mask>
       </DefaultPageSection.Section>
     </>
   );
