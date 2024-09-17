@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  weight: ["200", "400", "600", "800"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-montserrat",
 });
 
@@ -31,7 +31,7 @@ export default function RootLayout({
         <QueryProvider>
           <main className="flex flex-col h-screen">
             <CustomHeader />
-            <div className={`${montserrat.variable}  mt-[98px]`}>
+            <div className={`${montserrat.variable}  mt-[56px] sm:mt-[98px]`}>
               {children}
             </div>
             <CustomFooter />

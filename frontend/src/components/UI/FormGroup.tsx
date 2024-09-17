@@ -5,18 +5,14 @@ export interface FormGroupRoot {
 }
 
 export const FormGroupRoot = (props: FormHTMLAttributes<HTMLFormElement>) => {
-  return (
-    <form className={`flex h-fit gap-4 ${props.className}`}>
-      {props.children}
-    </form>
-  );
+  return <form className={`${props.className}`}>{props.children}</form>;
 };
 
 export const FormGroupSection = (
   props: FormHTMLAttributes<HTMLFormElement>
 ) => {
   return (
-    <div className={`flex flex-col gap-2 ${props.className}`}>
+    <div className={`flex flex-col gap-1 md:gap-2 ${props.className}`}>
       {props.children}
     </div>
   );
@@ -25,7 +21,7 @@ export const FormGroupSection = (
 export const FormGroupLabel = (
   props: LabelHTMLAttributes<HTMLLabelElement>
 ) => {
-  return <label className="text-sm">{props.children}</label>;
+  return <label className="text-[10px] md:text-sm">{props.children}</label>;
 };
 
 export const FormGroup = {

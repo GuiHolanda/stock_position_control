@@ -78,30 +78,28 @@ export const CustomHeader = () => {
   return (
     <header className="bg-white fixed top-0 w-full z-50">
       <nav
-        className="mx-auto flex items-center gap-4 p-6 md:px-8"
+        className="mx-auto flex items-center gap-4 p-3 sm:p-6"
         aria-label="Global"
       >
         <div className="flex flex-1 lg:flex-none">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Logo width={192} height={48} color="colored" />
+            <Logo className="h-6 sm:h-12" color="colored" />
           </a>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12 lg:grow md:pl-16">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-4 xl:gap-12 lg:grow md:pl-16">
           <CustomPopoverGroup buttonText="Pra você" />
-
           <a
             href="/para-sua-empresa"
             className="font-semibold text-preto_pleno hover:scale-105 hover:text-azul_sereno"
           >
             Para sua empresa
           </a>
-
           <CustomPopoverGroup buttonText="Conheça a Veneza" />
         </PopoverGroup>
         <a
           href="/auth"
-          className="hidden xl:flex text-azul_sereno border-azul_sereno font-semibold border px-6 py-3 rounded-md hover:scale-105 hover:text-azul_sereno"
+          className="hidden xl:flex text-xs sm:text-base font-semibold size-fit px-2 py-1 sm:px-6 sm:py-3 border border-azul_sereno rounded hover:scale-105"
         >
           Fale conosco
         </a>
@@ -123,11 +121,11 @@ export const CustomHeader = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <Logo width={192} height={48} />
+              <Logo className="w-32 h-8" />
             </a>
             <button
               type="button"

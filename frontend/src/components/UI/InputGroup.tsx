@@ -8,7 +8,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 export const InputRoot = (props: ChildrenProps) => {
   return (
-    <div className="flex items-center px-4 py-3 rounded-lg border gap-3 focus-within:ring-2 ring-primary bg-white">
+    <div className="flex items-center px-2 py-1 md:px-4 md:py-3 rounded-lg border gap-1 md:gap-3 focus-within:ring-2 ring-primary bg-white">
       {props.children}
     </div>
   );
@@ -22,7 +22,11 @@ export const InputIcon = (props: ChildrenProps) => {
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     return (
-      <input ref={ref} className="outline-none w-full text-sm" {...props} />
+      <input
+        ref={ref}
+        className="outline-none text-[10px] md:text-sm w-full"
+        {...props}
+      />
     );
   }
 );

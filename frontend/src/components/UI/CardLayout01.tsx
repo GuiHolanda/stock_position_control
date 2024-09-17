@@ -1,9 +1,10 @@
 import { HTMLAttributes } from "react";
+import { CustomText } from "./Texts";
 
 const CardFrame = (props: HTMLAttributes<HTMLElement>) => {
   return (
     <div
-      className={`flex flex-col gap-3 max-w-md max-h-96 rounded-[32px] p-8 shadow-xl ${props.className}`}
+      className={`flex flex-col gap-1 md:gap-3 max-w-48 md:max-w-80 max-h-96 rounded-[32px] p-4 md:p-8 shadow-xl ${props.className}`}
     >
       {props.children}
     </div>
@@ -12,14 +13,26 @@ const CardFrame = (props: HTMLAttributes<HTMLElement>) => {
 
 const CardTitle = (props: HTMLAttributes<HTMLElement>) => {
   return (
-    <h3 className={`text-2xl font-bold font-roboto  ${props.className}`}>
+    <CustomText.Title
+      fontSize="sm"
+      maxWidth="sm"
+      className={` ${props.className}`}
+    >
       {props.children}
-    </h3>
+    </CustomText.Title>
   );
 };
 
 const CardText = (props: HTMLAttributes<HTMLElement>) => {
-  return <h3 className={`text-lg font-roboto `}>{props.children}</h3>;
+  return (
+    <CustomText.Paragraph
+      fontSize="sm"
+      maxWidth="sm"
+      className={`${props.className}`}
+    >
+      {props.children}
+    </CustomText.Paragraph>
+  );
 };
 
 export const CardLayout01 = {

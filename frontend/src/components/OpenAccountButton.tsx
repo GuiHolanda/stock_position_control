@@ -1,5 +1,7 @@
 import { AnchorHTMLAttributes } from "react";
 import { Interface } from "readline";
+import { CustomText } from "./UI/Texts";
+import Link from "next/link";
 
 interface OpenAccountButtonProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -17,11 +19,11 @@ export const OpenAccountButton = ({
       ? "bg-azul_sereno text-cinza_ameno"
       : "bg-white text-black";
   return (
-    <a
-      href="/abra-sua-conta"
-      className={` ${colors} font-semibold size-fit px-6 py-3 rounded-md hover:scale-105 ${className}`}
+    <Link
+      href={"/abra-sua-conta"}
+      className={`py-2 px-4 md:py-4 md:px-8 rounded-md size-fit ${colors} ${className}`}
     >
-      Abra sua conta {hasIcon ? <span aria-hidden="true">&rarr;</span> : ""}
-    </a>
+      <CustomText.Paragraph>Abra sua conta</CustomText.Paragraph>
+    </Link>
   );
 };

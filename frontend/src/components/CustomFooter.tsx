@@ -6,13 +6,13 @@ export const CustomFooter = () => {
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <div className="flex flex-1 lg:flex-none">
+            <div className="flex flex-1 lg:flex-none justify-center sm:justify-start">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <Logo width={192} height={48} className="-ms-6" />
+                <Logo className="h-8 sm:h-12" color="colored" />
               </a>
             </div>
-            <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+            <p className="mt-6 max-w-md text-sm sm:text-base text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
               consequuntur amet culpa cum itaque neque.
             </p>
