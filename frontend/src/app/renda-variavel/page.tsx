@@ -2,23 +2,25 @@ import { TabGroup, TabList, TabPanels, TabPanel, Tab } from "@headlessui/react";
 import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
 import { CustomText } from "../../components/UI/Texts";
 import Image from "next/image";
+import { OpenAccountButton } from "../../components/OpenAccountButton";
+import { CardLayout01 } from "../../components/UI/CardLayout01";
 
 const differentials = [
   {
     img: "/icons/money-bag.png",
-    text: "Impulsione o crescimento da sua empresa com soluções de crédito flexíveis e adequadas às suas necessidades.",
+    text: "Na Veneza Investimentos, utilizamos abordagens proativas para minimizar a exposição a volatilidades e assegurar a estabilidade do seu portfólio de Renda Variável.",
   },
   {
     img: "/icons/exchange.png",
-    text: "Maximize a eficiência das suas operações internacionais com nossas soluções de câmbio personalizadas.",
+    text: "Aqui você pode confiar em uma abordagem clara e ética, garantindo que suas decisões de investimento sejam sempre bem fundamentadas.",
   },
   {
     img: "/icons/add-to-cart.png",
-    text: "Acesse o mercado de capitais para captar recursos e expandir suas operações.",
+    text: "Com a Veneza, você tem acesso às mais recentes inovações no mercado, aprimorando a gestão e o desempenho do seu portfólio.",
   },
   {
     img: "/icons/stock-market.png",
-    text: "Expertise em gestão de riscos financeiros e soluções de hedge personalizadas para lidar com as exposições específicas do seu negócio, protegendo seus ativos para um crescimento seguro e sustentável.",
+    text: "nossos especialistas em Renda Variável possuem o conhecimento e a expertise necessários para oferecer estratégias de investimento personalizadas e eficazes.",
   },
 ];
 
@@ -44,6 +46,29 @@ const categories = [
     title:
       "Maximize suas estratégias com a precisão das operações estruturadas.",
     text: "As operações estruturadas com opções oferecem uma maneira sofisticada de gerenciar riscos e potencializar ganhos. Na Veneza Investimentos, nossa equipe de especialistas desenvolve estratégias personalizadas que combinam diferentes opções para criar soluções que atendem às suas necessidades específicas. Explore novas formas de otimizar seu portfólio e proteger seus investimentos com operações estruturadas bem elaboradas.",
+  },
+];
+
+const differentialCards = [
+  {
+    img: "/icons/headPhone.png",
+    title: "Atendimento Dedicado",
+    text: "Desfrute de um serviço personalizado com uma equipe que conhece suas necessidades e ajusta sua estratégia de investimento para maximizar seus resultados.",
+  },
+  {
+    img: "/icons/chatBox.png",
+    title: "Suporte Especializado",
+    text: "Nosso time de especialistas acompanha de perto o desempenho do seu negócio e oferece orientações precisas para alcançar seus objetivos com eficiência.",
+  },
+  {
+    img: "/icons/ideaLamp.png",
+    title: "Inovação em Cada Passo",
+    text: "Explore oportunidades de investimento com sugestões personalizadas e inovadoras, sempre baseadas em estratégias que atendem às suas preferências e objetivos.",
+  },
+  {
+    img: "/icons/chessKnight.png",
+    title: "Estratégias Personalizadas",
+    text: "Monitoramos seu portfólio regularmente para identificar e sugerir oportunidades que impulsionem seu negócio para o próximo nível de sucesso.",
   },
 ];
 
@@ -75,7 +100,7 @@ const VariableIncomePage = () => {
       </DefaultPageSection.Section>
 
       <DefaultPageSection.Section>
-        <DefaultPageSection.Div className="mx-auto py-8 md:py-16">
+        <DefaultPageSection.Div className="mx-auto py-8 md:py-32">
           <div className="flex col-span-12 items-baseline">
             <div className="flex flex-col gap-2 md:gap-4">
               <CustomText.Paragraph className="text-sky-500 tracking-widest uppercase">
@@ -126,28 +151,98 @@ const VariableIncomePage = () => {
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="bg-gradient-to-r from-azul_sereno  to-cinza_petroleo">
-        <DefaultPageSection.Div className="mx-auto py-8 md:py-16">
-          <div className="col-span-12 flex flex-col gap-8 md:gap-16">
+      <DefaultPageSection.Section className="bg-gradient-to-r from-azul_sereno  to-cinza_petroleo relative">
+        <DefaultPageSection.Div className="mx-auto gap-y-8 md:gap-y-0 md:gap-x-16 py-8 md:py-32">
+          <div className="bg-cinza_petroleo col-span-12 h-80 md:h-auto md:col-span-5 rounded-tl-[128px] rounded-br-[128px] bg-clip-border relative">
+            <Image
+              src={"/img/business-man-01.png"}
+              alt="business-man-01.png"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="col-span-12 md:col-span-7 flex flex-col gap-4 md:gap-8 mx-auto">
             <CustomText.Title maxWidth="lg" className="text-white font-bold">
               Por que investir em Renda variável com a Veneza ?
             </CustomText.Title>
             <ul className="flex flex-col gap-4 md:gap-8">
               {differentials.map((differential, index) => (
                 <li key={index} className="flex gap-2 md:gap-4 items-center">
-                  <Image
-                    width={32}
-                    height={32}
-                    alt="icon"
-                    src={differential.img}
-                    className="size-6"
-                  />
-                  <CustomText.Paragraph className="text-white">
+                  <div className="bg-white p-2 md:p-4 rounded-full">
+                    <CustomText.Paragraph
+                      fontSize="xlg"
+                      className="text-azul_sereno font-bold"
+                    >
+                      {index + 1}
+                    </CustomText.Paragraph>
+                  </div>
+                  <CustomText.Paragraph maxWidth="xlg" className="text-white">
                     {differential.text}
                   </CustomText.Paragraph>
                 </li>
               ))}
             </ul>
+          </div>
+        </DefaultPageSection.Div>
+      </DefaultPageSection.Section>
+
+      <DefaultPageSection.Section className="py-8 md:py-32">
+        <DefaultPageSection.Div className="gap-y-8 md:gap-y-16 mx-auto">
+          <div className="col-span-12 bg-gradient-to-r from-cinza_petroleo to-azul_sereno rounded-tl-[64px] rounded-br-[64px] md:rounded-tl-[128px] md:rounded-br-[128px] relative">
+            <div className="flex flex-col gap-4 md:gap-8 py-8 md:py-16 px-8 md:px-32">
+              <div className="flex flex-col gap-2 md:gap-4 text-cinza_ameno font-montserrat z-10">
+                <CustomText.Title
+                  fontSize="md"
+                  maxWidth="md"
+                  className="front-bold"
+                >
+                  Abordagem Orientada para Resultados
+                </CustomText.Title>
+                <CustomText.Paragraph fontSize="sm" maxWidth="md">
+                  Na Veneza Investimentos, nosso foco é entregar resultados
+                  concretos. Com estratégias baseadas em objetivos claros e
+                  métricas de desempenho rigorosas, trabalhamos para maximizar
+                  seus retornos e atingir suas metas financeiras.
+                </CustomText.Paragraph>
+              </div>
+              <OpenAccountButton buttonStyle="secondary" />
+            </div>
+            <Image
+              src={"/img/business-man-pointing.png"}
+              width={540}
+              height={460}
+              alt="business man pointing"
+              className="hidden lg:inline-block max-w-md xl:max-w-lg absolute right-16 bottom-0"
+            />
+          </div>
+          <CustomText.Title
+            fontSize="lg"
+            maxWidth="lg"
+            className="col-span-12 text-azul_sereno font-bold text-center place-self-center"
+          >
+            Invista em randa variável com a Veneza
+          </CustomText.Title>
+          <div className="col-span-12 flex flex-wrap gap-8 justify-center">
+            {differentialCards.map((card, index) => (
+              <CardLayout01.Frame key={index}>
+                <Image
+                  src={card.img}
+                  width={32}
+                  height={32}
+                  alt="headPhone icon"
+                />
+                <CustomText.Paragraph
+                  fontSize="lg"
+                  maxWidth="md"
+                  className="font-bold"
+                >
+                  {card.title}
+                </CustomText.Paragraph>
+                <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  {card.text}
+                </CustomText.Paragraph>
+              </CardLayout01.Frame>
+            ))}
           </div>
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>

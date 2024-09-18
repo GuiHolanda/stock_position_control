@@ -21,14 +21,14 @@ const products = [
     name: "Renda variável",
     description:
       "Entre no universo da bolsa de valores com auxílio de especialistas",
-    href: "#",
+    href: "/renda-variavel",
     icon: ChartPieIcon,
   },
   {
     name: "Renda Fixa",
     description:
       "Opção de investimento segura e para todos horizontes de tempo",
-    href: "#",
+    href: "/renda-fixa",
     icon: CursorArrowRaysIcon,
   },
   {
