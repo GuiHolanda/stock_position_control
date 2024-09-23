@@ -1,17 +1,13 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogPanel,
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Popover,
-  PopoverButton,
   PopoverGroup,
-  PopoverPanel,
-  Transition,
 } from "@headlessui/react";
 import {
   ArrowPathIcon,
@@ -30,6 +26,7 @@ import {
 import Logo from "./UI/Logo";
 import { CustomPopoverGroup } from "./UI/PopoverGroup";
 import { OpenAccountButton } from "./OpenAccountButton";
+import ContactUsModal from "./UI/ContactUsModal";
 
 const products = [
   {
@@ -76,7 +73,7 @@ export const CustomHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white fixed top-0 w-full z-50">
+    <header className="bg-white fixed top-0 w-full z-30">
       <nav
         className="mx-auto flex items-center gap-4 p-3 sm:p-6"
         aria-label="Global"
@@ -97,12 +94,7 @@ export const CustomHeader = () => {
           </a>
           <CustomPopoverGroup buttonText="Conheça a Veneza" />
         </PopoverGroup>
-        <a
-          href="/auth"
-          className="hidden xl:flex text-xs sm:text-base font-semibold size-fit px-2 py-1 sm:px-6 sm:py-3 border border-azul_sereno rounded hover:scale-105"
-        >
-          Fale conosco
-        </a>
+        <ContactUsModal buttonText="Fale conosco" />
         <OpenAccountButton hasIcon />
         <div className="flex lg:hidden">
           <button
