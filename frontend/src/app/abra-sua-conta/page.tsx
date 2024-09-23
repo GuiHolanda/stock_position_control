@@ -1,19 +1,11 @@
-import {
-  BeakerIcon,
-  CalendarDaysIcon,
-  CheckBadgeIcon,
-  GlobeAltIcon,
-  PhoneIcon,
-  StarIcon,
-} from "@heroicons/react/24/outline";
+"use client";
+
 import { OpenAccountButton } from "../../components/OpenAccountButton";
 import { CardLayout01 } from "../../components/UI/CardLayout01";
 import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
-import { FormGroup } from "../../components/UI/FormGroup";
-import { InputGroup } from "../../components/UI/InputGroup";
-import { Loader } from "../../components/UI/Loader";
 import Logo from "../../components/UI/Logo";
 import { CustomText } from "../../components/UI/Texts";
+import OpenAccountForm from "../../components/OpenAccountForm";
 
 const stepsCard = [
   {
@@ -78,63 +70,7 @@ const OpenYourAccountPage = () => {
                 color="colored"
               />
             </div>
-            <FormGroup.Root className="col-span-12 lg:col-span-6 grid grid-cols-12 gap-y-4 place-content-center">
-              <FormGroup.Section className="col-span-12 md:col-span-6 md:mr-8">
-                <FormGroup.Label htmlFor="name">
-                  Qual o seu <strong>nome ?</strong>
-                </FormGroup.Label>
-                <InputGroup.Root>
-                  <InputGroup.Input
-                    type="text"
-                    id="name"
-                    placeholder="Digite seu nome completo"
-                    autoComplete="name"
-                    required
-                  />
-                </InputGroup.Root>
-              </FormGroup.Section>
-              <FormGroup.Section className="col-span-12 md:col-span-6">
-                <FormGroup.Label htmlFor="phone">
-                  Qual o seu <strong>telefone ?</strong>
-                </FormGroup.Label>
-                <InputGroup.Root>
-                  <InputGroup.Input
-                    type="text"
-                    id="phone"
-                    placeholder="Informe seu melhor telefone"
-                    required
-                    autoComplete="tel"
-                  />
-                </InputGroup.Root>
-              </FormGroup.Section>
-              <FormGroup.Section className="col-span-12">
-                <FormGroup.Label htmlFor="email">
-                  Qual o seu <strong>e-mail ?</strong>
-                </FormGroup.Label>
-                <InputGroup.Root>
-                  <InputGroup.Input
-                    type="email"
-                    id="email"
-                    placeholder="Digite seu email"
-                    autoComplete="email"
-                    required
-                  />
-                </InputGroup.Root>
-              </FormGroup.Section>
-              <div className="col-span-12 flex item gap-2 mr-auto">
-                <input
-                  type="checkbox"
-                  name="createAccountPrivacyPolicyCheckBox"
-                />
-                <label htmlFor="createAccountPrivacyPolicyCheckBox">
-                  <CustomText.Paragraph fontSize="xs" maxWidth="lg">
-                    Ao continuar navegando, você está ciente da nossa Política
-                    de Privacidade.
-                  </CustomText.Paragraph>
-                </label>
-              </div>
-              <OpenAccountButton className="col-span-12" />
-            </FormGroup.Root>
+            <OpenAccountForm />
           </DefaultPageSection.Div>
         </DefaultPageSection.Mask>
       </DefaultPageSection.Section>
