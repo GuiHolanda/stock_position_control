@@ -35,7 +35,7 @@ const products = [
     name: "Investimentos Internacionais",
     description:
       "Se exponha ao mercado internacional com toda segunraça que nossa equipe pode proporcionar",
-    href: "#",
+    href: "/internacional",
     icon: FingerPrintIcon,
   },
   {
