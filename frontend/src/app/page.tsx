@@ -72,7 +72,7 @@ export default function Page() {
               opacity={"50%"}
               className="absolute right-32 h-[265px] -bottom-1 sm:h-[calc(100svh-132px)] xl:right-72"
             />
-            <div className="col-span-12 md:col-span-8 flex flex-col gap-4 sm:gap-8 md:items-start z-30 my-auto">
+            <div className="col-span-12 md:col-span-8 flex flex-col gap-4 sm:gap-8 md:items-start z-10 my-auto">
               <div className="h-1 w-4 sm:w-8 sm:h-2 bg-white rounded-md"></div>
               <div className="flex flex-col gap-2 md:gap-8 text-cinza_ameno z-10">
                 <CustomText.Title
@@ -96,7 +96,7 @@ export default function Page() {
         </DefaultPageSection.Mask>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="py-8 md:py-16">
+      <DefaultPageSection.Section className="py-8 md:py-32">
         <DefaultPageSection.Div className="divide-y-2 md:divide-y-0 md:divide-x-2 mx-auto">
           <div className="col-span-12 md:col-span-6 flex flex-col gap-8 md:mr-8 md:pr-8 items-center md:items-start md:text-left pb-4 md:pb-0">
             <CustomText.Title fontSize="md" maxWidth="md">
@@ -132,7 +132,7 @@ export default function Page() {
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="py-8 md:py-16 bg-black">
+      <DefaultPageSection.Section className="py-8 md:py-32 bg-black">
         <DefaultPageSection.Div className="gap-y-4 md:gap-y-8 mx-auto">
           <CustomText.Title
             fontSize="md"
@@ -293,7 +293,7 @@ export default function Page() {
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="py-8 xl:py-32">
+      <DefaultPageSection.Section className="py-8 md:py-32">
         <DefaultPageSection.Div className="space-y-8 mx-auto">
           <div className="col-span-12 bg-gradient-to-r from-cinza_petroleo to-azul_sereno rounded-tl-[64px] rounded-br-[64px] md:rounded-tl-[128px] md:rounded-br-[128px] relative">
             <div className="flex flex-col gap-4 md:gap-8 py-8 md:py-16 px-8 md:px-32">
@@ -353,7 +353,7 @@ export default function Page() {
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="bg-gradient-to-r to-azul_sereno from-30% from-cinza_petroleo py-4 md:py-16">
+      <DefaultPageSection.Section className="bg-gradient-to-r to-azul_sereno from-30% from-cinza_petroleo py-4 md:py-32">
         <DefaultPageSection.Div className="gap-y-4 md:gap-y-8 mx-auto">
           <div className="col-span-12 flex flex-col gap-2 md:gap-4">
             <CustomText.Title
