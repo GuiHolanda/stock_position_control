@@ -12,7 +12,7 @@ export default function Grifo(props: SVGProps<SVGSVGElement>) {
       width={props.width}
       height={props.height}
       viewBox="0 0 171 198"
-      enable-background="new 0 0 171 198"
+      enableBackground="new 0 0 171 198"
       // xmlSpace="preserve"
       className={props.className}
     >
