@@ -12,12 +12,13 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "home-page-texture": "url('/img/home-page-texture.jpeg')",
-        "open-account-texture": "url('/img/open-account-texture.jpg')",
-        "open-account-house": "url('/img/open-account-house-image.jpeg')",
-        "for-company-background": "url('/img/for-company-background.jpg')",
+        "home-page-texture": "url('/img/home-page-texture-min-2048.jpg')",
+        "open-account-texture": "url('/img/open-account-texture-1024.png')",
+        "open-account-house":
+          "url('/img/open-account-house-image-min-2048.jpg')",
+        "for-company-background": "url('/img/for-company-background-2048.jpg')",
         "new-horizon": "url('/img/new_horizons.jpg')",
-        "rend-variavel": "url('/img/rend-variavel.jpeg')",
+        "rend-variavel": "url('/img/rend-variavel-min-2028.jpg')",
         "rend-fixa": "url('/img/rend-fixa.jpg')",
         international: "url('/img/international.jpg')",
       },
