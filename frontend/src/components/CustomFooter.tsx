@@ -15,7 +15,7 @@ export const CustomFooter = () => {
             </div>
             <CustomText.Paragraph
               fontSize="sm"
-              className="text-center leading-relaxed text-gray-500 sm:text-left"
+              className="text-center mx-auto md:mx-0 leading-relaxed text-gray-500 sm:text-left"
             >
               Oferecemos soluções personalizadas para você alcançar seus
               objetivos financeiros com segurança e confiança. Vamos juntos
@@ -96,14 +96,14 @@ export const CustomFooter = () => {
                   </a>
                 </li>
 
-                <li>
+                {/* <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
                     href="#"
                   >
                     Seja um assessor Veneza
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -140,14 +140,14 @@ export const CustomFooter = () => {
                   </a>
                 </li>
 
-                <li>
+                {/* <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
                     href="/"
                   >
                     Sucessão Patrimonial
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
 
