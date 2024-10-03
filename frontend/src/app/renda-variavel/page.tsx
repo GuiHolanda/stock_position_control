@@ -224,24 +224,30 @@ const VariableIncomePage = () => {
           </CustomText.Title>
           <div className="col-span-12 flex flex-wrap gap-8 justify-center">
             {differentialCards.map((card, index) => (
-              <CardLayout01.Frame key={index}>
-                <Image
-                  src={card.img}
-                  width={32}
-                  height={32}
-                  alt="headPhone icon"
-                />
-                <CustomText.Paragraph
-                  fontSize="lg"
-                  maxWidth="md"
-                  className="font-bold"
-                >
-                  {card.title}
-                </CustomText.Paragraph>
-                <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+              <div
+                className="flex flex-col gap-1 md:gap-4 max-w-48 md:max-w-4xl rounded-2xl p-8 md:p-12 shadow-xl"
+                key={index}
+              >
+                <div className="flex flex-col gap-2 md:gap-4">
+                  <CustomText.Paragraph
+                    fontSize="xlg"
+                    maxWidth="md"
+                    className="font-bold order-2 md:order-1"
+                  >
+                    {card.title}
+                  </CustomText.Paragraph>
+
+                  <Image
+                    src={card.img}
+                    width={32}
+                    height={32}
+                    alt="headPhone icon"
+                  />
+                </div>
+                <CustomText.Paragraph fontSize="md" maxWidth="md">
                   {card.text}
                 </CustomText.Paragraph>
-              </CardLayout01.Frame>
+              </div>
             ))}
           </div>
         </DefaultPageSection.Div>
