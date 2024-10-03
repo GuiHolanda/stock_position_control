@@ -22,47 +22,83 @@ import {
   ChevronDownIcon,
   PhoneIcon,
   PlayCircleIcon,
+  UsersIcon,
 } from "@heroicons/react/20/solid";
 import Logo from "./UI/Logo";
-import { CustomPopoverGroup } from "./UI/PopoverGroup";
+import { CustomPopoverGroup, HeaderNavNodes } from "./UI/PopoverGroup";
 import { OpenAccountButton } from "./OpenAccountButton";
 import ContactUsModal from "./UI/ContactUsModal";
 
-const products = [
+const venezaNavNodes: HeaderNavNodes[] = [
+  {
+    name: "Conheça o nosso time",
+    href: "/nosso-time",
+    Icon: UsersIcon,
+  },
+];
+
+const forYouNavNodes: HeaderNavNodes[] = [
+  {
+    name: "Renda variável",
+    description:
+      "Entre no universo da bolsa de valores com auxílio de especialistas",
+    href: "/renda-variavel",
+    Icon: ChartPieIcon,
+  },
+  {
+    name: "Renda Fixa",
+    description:
+      "Opção de investimento segura e para todos horizontes de tempo",
+    href: "/renda-fixa",
+    Icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Investimentos Internacionais",
+    description:
+      "Se exponha ao mercado internacional com toda segunraça que nossa equipe pode proporcionar",
+    href: "/internacional",
+    Icon: FingerPrintIcon,
+  },
+  // {
+  //   name: "Proteção e suceaaao patrimonial",
+  //   description:
+  //     "blinde seus bens contra qualquer adversidade que possa aparecer",
+  //   href: "#",
+  //   Icon: SquaresPlusIcon,
+  // },
+];
+
+const products: HeaderNavNodes[] = [
   {
     name: "Analytics",
     description: "Get a better understanding of your traffic",
     href: "#",
-    icon: ChartPieIcon,
+    Icon: ChartPieIcon,
   },
   {
     name: "Engagement",
     description: "Speak directly to your customers",
     href: "#",
-    icon: CursorArrowRaysIcon,
+    Icon: CursorArrowRaysIcon,
   },
   {
     name: "Security",
     description: "Your customers’ data will be safe and secure",
     href: "#",
-    icon: FingerPrintIcon,
+    Icon: FingerPrintIcon,
   },
   {
     name: "Integrations",
     description: "Connect with third-party tools",
     href: "#",
-    icon: SquaresPlusIcon,
+    Icon: SquaresPlusIcon,
   },
   {
     name: "Automations",
     description: "Build strategic funnels that will convert",
     href: "#",
-    icon: ArrowPathIcon,
+    Icon: ArrowPathIcon,
   },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
 ];
 
 function classNames(...classes: string[]) {
@@ -85,16 +121,22 @@ export const CustomHeader = () => {
           </a>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-4 xl:gap-12 lg:grow md:pl-16">
-          <CustomPopoverGroup buttonText="Pra você" />
+          <CustomPopoverGroup
+            buttonText="Para você"
+            navNodes={forYouNavNodes}
+          />
           <a
             href="/para-sua-empresa"
             className="font-semibold text-preto_pleno hover:scale-105 hover:text-azul_sereno"
           >
             Para sua empresa
           </a>
-          <CustomPopoverGroup buttonText="Conheça a Veneza" />
+          <CustomPopoverGroup
+            buttonText="Conheça a Veneza"
+            navNodes={venezaNavNodes}
+          />
         </PopoverGroup>
-        <ContactUsModal buttonText="Fale conosco" />
+        <ContactUsModal buttonText="Fale conosco" className="hidden xl:flex" />
         <OpenAccountButton hasIcon />
         <div className="flex lg:hidden">
           <button
@@ -113,7 +155,7 @@ export const CustomHeader = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -135,7 +177,7 @@ export const CustomHeader = () => {
                   {({ open }) => (
                     <>
                       <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
+                        Para você
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -145,7 +187,7 @@ export const CustomHeader = () => {
                         />
                       </DisclosureButton>
                       <DisclosurePanel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
+                        {forYouNavNodes.map((item) => (
                           <DisclosureButton
                             key={item.name}
                             as="a"
@@ -163,28 +205,39 @@ export const CustomHeader = () => {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  Para sua Empresa
                 </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Company
-                </a>
+                <Disclosure as="div" className="-mx-3">
+                  {({ open }) => (
+                    <>
+                      <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                        Conheça a Veneza
+                        <ChevronDownIcon
+                          className={classNames(
+                            open ? "rotate-180" : "",
+                            "h-5 w-5 flex-none"
+                          )}
+                          aria-hidden="true"
+                        />
+                      </DisclosureButton>
+                      <DisclosurePanel className="mt-2 space-y-2">
+                        {venezaNavNodes.map((item) => (
+                          <DisclosureButton
+                            key={item.name}
+                            as="a"
+                            href={item.href}
+                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                          >
+                            {item.name}
+                          </DisclosureButton>
+                        ))}
+                      </DisclosurePanel>
+                    </>
+                  )}
+                </Disclosure>
               </div>
               <div className="py-6">
-                <a
-                  href="/auth"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                <ContactUsModal buttonText="Fale conosco" />
               </div>
             </div>
           </div>

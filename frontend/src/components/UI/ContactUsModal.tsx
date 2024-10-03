@@ -4,6 +4,7 @@ import ContactUsForm from "../ContactUsForm";
 
 interface ModalProps {
   buttonText: string;
+  className?: string;
 }
 
 export default function ContactUsModal(props: ModalProps) {
@@ -21,7 +22,7 @@ export default function ContactUsModal(props: ModalProps) {
     <>
       <Button
         onClick={open}
-        className="hidden xl:flex text-xs sm:text-base font-semibold size-fit px-2 py-1 sm:px-6 sm:py-3 border border-azul_sereno rounded hover:scale-105"
+        className={`text-xs sm:text-base font-semibold size-fit px-2 py-1 sm:px-6 sm:py-3 border border-azul_sereno rounded hover:scale-105 ${props.className}`}
       >
         {props.buttonText}
       </Button>
