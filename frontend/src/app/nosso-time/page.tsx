@@ -2,19 +2,22 @@ import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
 import { CustomText } from "../../components/UI/Texts";
 
 const assessores = [
-  { cod: "22740", name: "Guilherme Holanda" },
   { cod: "71070", name: "André Moz" },
-  { cod: "23637", name: "Emanuel Diniz" },
-  { cod: "24119", name: "Francisco Barbosa" },
-  { cod: "21729", name: "Leonardo Rodrigues" },
-  { cod: "20323", name: "Luiz de Andrade" },
-  { cod: "21638", name: "Makarenna Portugal" },
-  { cod: "73232", name: "Nicole Magalhães" },
-  { cod: "23768", name: "Paulo Lessa" },
-  { cod: "69180", name: "Renata de Albuquerque" },
-  { cod: "42291", name: "Yuri Fernandes" },
-  { cod: "22828", name: "Guilherme Holanda" },
+  { cod: "24119", name: "Emanuel Diniz" },
+  { cod: "21729", name: "Francisco Barbosa" },
+  { cod: "22740", name: "Guilherme Holanda" },
+  { cod: "20323", name: "Leonardo Rodrigues" },
+  { cod: "50486", name: "Lucas Souza" },
+  { cod: "21638", name: "Luiz de Andrade" },
+  { cod: "73232", name: "Makarenna Portugal" },
   { cod: "22919", name: "Marcus Lopes" },
+  { cod: "23768", name: "Nicole Magalhães" },
+  { cod: "69180", name: "Paulo Lessa" },
+  { cod: "42291", name: "Renata de Albuquerque" },
+  { cod: "23637", name: "Rômulo Halliday" },
+  { cod: "47798", name: "Thiago Miotto" },
+  { cod: "44112", name: "Victor Lúcio" },
+  { cod: "22828", name: "Yuri Fernandes" },
 ];
 
 export default function Page() {

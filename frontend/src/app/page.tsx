@@ -158,7 +158,7 @@ export default function Page() {
           </CustomText.Paragraph>
           <div className="col-span-12 flex flex-wrap justify-center gap-4 md:gap-8">
             <CardLayout01.Frame className="text-center bg-neutral-800 border-azul_sereno border-y-2">
-              <div>
+              <div className="flex flex-col justify-center">
                 <CustomText.Paragraph
                   fontSize="md"
                   maxWidth="lg"
@@ -168,7 +168,6 @@ export default function Page() {
                 </CustomText.Paragraph>
                 <CustomText.Title
                   fontSize="sm"
-                  maxWidth="sm"
                   className="text-white font-extralight"
                 >
                   R$ 300 mil
@@ -176,8 +175,7 @@ export default function Page() {
               </div>
               <CustomText.Paragraph
                 fontSize="lg"
-                maxWidth="md"
-                className="text-sky-500"
+                className="text-sky-500 mx-auto"
               >
                 Assessoria Estratégica
               </CustomText.Paragraph>
@@ -185,26 +183,26 @@ export default function Page() {
               <ul className="flex flex-col items-center">
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <BeakerIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Suporte via Mesa Estratégica
                   </CustomText.Paragraph>
                 </li>
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <GlobeAltIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Plataforma pelo site ou app
                   </CustomText.Paragraph>
                 </li>
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <PhoneIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Atendimento por demanda
                   </CustomText.Paragraph>
                 </li>
               </ul>
             </CardLayout01.Frame>
             <CardLayout01.Frame className="text-center bg-neutral-800 border-azul_sereno border-y-2">
-              <div>
+              <div className="flex flex-col justify-center">
                 <CustomText.Paragraph
                   fontSize="md"
                   maxWidth="lg"
@@ -214,7 +212,6 @@ export default function Page() {
                 </CustomText.Paragraph>
                 <CustomText.Title
                   fontSize="sm"
-                  maxWidth="sm"
                   className=" text-white font-extralight"
                 >
                   R$ 300 mil
@@ -223,7 +220,7 @@ export default function Page() {
               <CustomText.Paragraph
                 fontSize="lg"
                 maxWidth="md"
-                className="text-sky-500"
+                className="text-sky-500 mx-auto"
               >
                 Assessoria Exclusiva
               </CustomText.Paragraph>
@@ -231,26 +228,26 @@ export default function Page() {
               <ul className="flex flex-col items-center">
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <CalendarDaysIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Contato mesal
                   </CustomText.Paragraph>
                 </li>
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <CheckBadgeIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
-                    Revisão bimestral
+                  <CustomText.Paragraph fontSize="sm">
+                    Revisão trimestral
                   </CustomText.Paragraph>
                 </li>
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <PhoneIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Atendimento personalizado
                   </CustomText.Paragraph>
                 </li>
               </ul>
             </CardLayout01.Frame>
             <CardLayout01.Frame className="text-center bg-neutral-800 border-yellow-500 border-y-2">
-              <div>
+              <div className="flex flex-col justify-center">
                 <CustomText.Paragraph
                   fontSize="md"
                   maxWidth="lg"
@@ -260,7 +257,6 @@ export default function Page() {
                 </CustomText.Paragraph>
                 <CustomText.Title
                   fontSize="sm"
-                  maxWidth="sm"
                   className="text-white font-extralight"
                 >
                   R$ 1 milhão
@@ -269,7 +265,7 @@ export default function Page() {
               <CustomText.Paragraph
                 fontSize="lg"
                 maxWidth="md"
-                className="text-yellow-500"
+                className="text-yellow-500 mx-auto"
               >
                 Assessoria Private
               </CustomText.Paragraph>
@@ -277,19 +273,19 @@ export default function Page() {
               <ul className="flex flex-col items-center">
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <CalendarDaysIcon className="size-2 md:size-4" />{" "}
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Contato mesal
                   </CustomText.Paragraph>
                 </li>
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <CheckBadgeIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Revisão bimestral
                   </CustomText.Paragraph>
                 </li>
                 <li className="flex gap-1 md:gap-2 text-white items-center">
                   <StarIcon className="size-2 md:size-4" />
-                  <CustomText.Paragraph fontSize="sm" maxWidth="sm">
+                  <CustomText.Paragraph fontSize="sm">
                     Investidor qualificado
                   </CustomText.Paragraph>
                 </li>
