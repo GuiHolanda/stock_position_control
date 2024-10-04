@@ -71,13 +71,13 @@ export const CustomFooter = () => {
             </ul>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2 border-t xl:border-t-0 border-cinza_ameno pt-6 xl:pt-0">
+          <div className="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2 border-t xl:border-t-0 border-cinza_ameno pt-6 xl:pt-0">
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-gray-900">
+              <p className="text-sm md:text-lg font-medium text-gray-900">
                 Sobre a Veneza
               </p>
 
-              <ul className="mt-4 md:mt-8 space-y-4 text-sm">
+              <ul className="mt-4 md:mt-8 space-y-4 text-xs md:text-sm">
                 {/* <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
@@ -108,11 +108,11 @@ export const CustomFooter = () => {
             </div>
 
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-gray-900">
+              <p className="text-sm md:text-lg font-medium text-gray-900">
                 Nossos Serviços
               </p>
 
-              <ul className="mt-4 md:mt-8 space-y-4 text-sm">
+              <ul className="mt-4 md:mt-8 space-y-4 text-xs md:text-sm">
                 <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
@@ -152,11 +152,11 @@ export const CustomFooter = () => {
             </div>
 
             <div className="text-center sm:text-left md:col-span-2">
-              <p className="text-lg font-medium text-gray-900">
+              <p className="text-sm md:text-lg font-medium text-gray-900">
                 Entre em Contato
               </p>
 
-              <ul className="flex flex-col mt-4 md:mt-8 space-y-4 text-sm">
+              <ul className="mt-4 md:mt-8 space-y-4 text-xs md:text-sm">
                 <li>
                   <a
                     className="flex justify-center sm:justify-start gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
@@ -164,7 +164,7 @@ export const CustomFooter = () => {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="size-5 shrink-0 text-gray-900"
+                      className="size-3 md:size-5 shrink-0 text-gray-900"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -190,7 +190,7 @@ export const CustomFooter = () => {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="size-5 shrink-0 text-gray-900"
+                      className="size-3 md:size-5 shrink-0 text-gray-900"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -210,7 +210,7 @@ export const CustomFooter = () => {
                 <li className="flex items-start justify-center sm:justify-start gap-1.5 ltr:sm:justify-start rtl:sm:justify-end">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="size-5 shrink-0 text-gray-900"
+                    className="size-3 md:size-5 shrink-0 text-gray-900"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
