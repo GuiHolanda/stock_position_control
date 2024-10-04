@@ -152,7 +152,9 @@ export const CustomFooter = () => {
             </div>
 
             <div className="text-center sm:text-left md:col-span-2">
-              <p className="text-lg font-medium text-gray-900">Contact Us</p>
+              <p className="text-lg font-medium text-gray-900">
+                Entre em Contato
+              </p>
 
               <ul className="flex flex-col mt-4 md:mt-8 space-y-4 text-sm">
                 <li>

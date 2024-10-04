@@ -6,7 +6,7 @@ interface DefaultPageSectionProps extends HTMLAttributes<HTMLElement> {
 
 export const PageSection = (props: DefaultPageSectionProps) => {
   const sectionSize = props.isFirstSection
-    ? `h-[calc(50svh-55px)] sm:h-[calc(100svh-162px)]`
+    ? `h-[calc(60svh-55px)] sm:h-[calc(100svh-162px)]`
     : ``;
   return (
     <section className={`${sectionSize} ${props?.className}`}>

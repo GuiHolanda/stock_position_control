@@ -145,7 +145,7 @@ const OpenYourAccountPage = () => {
       </DefaultPageSection.Section>
 
       <DefaultPageSection.Section className=" bg-open-account-house bg-cover bg-center bg-opacity-10 md:h-[796px]">
-        <DefaultPageSection.Mask className="from-black/85 to-black/5 py-8 md:py-16">
+        <DefaultPageSection.Mask className="from-black/85 to-black/5 py-16 ">
           <DefaultPageSection.Div className="lg:ml-32">
             <div className="col-span-12 flex flex-col gap-4 md:gap-8">
               <div className="w-8 h-2 bg-white rounded-md"></div>
