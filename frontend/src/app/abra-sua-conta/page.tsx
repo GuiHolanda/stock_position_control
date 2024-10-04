@@ -1,5 +1,6 @@
 "use client";
-
+import Image from "next/image";
+import openAccountBackground from "../../../public/img/open-account-texture-1024.png";
 import { OpenAccountButton } from "../../components/OpenAccountButton";
 import { CardLayout01 } from "../../components/UI/CardLayout01";
 import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
@@ -44,11 +45,17 @@ const bigNumbers = [
 const OpenYourAccountPage = () => {
   return (
     <>
-      <DefaultPageSection.Section
-        isFirstSection
-        className="bg-open-account-texture bg-cover"
-      >
-        <DefaultPageSection.Mask className="bg-white bg-opacity-30 py-8 md:py-16">
+      <DefaultPageSection.Section isFirstSection className="relative">
+        <Image
+          src={openAccountBackground}
+          fill
+          alt="home page background"
+          style={{
+            objectFit: "cover", // cover, contain, none
+          }}
+          priority
+        />
+        <DefaultPageSection.Mask className="absolute bg-white bg-opacity-30 py-8 md:py-16">
           <DefaultPageSection.Div className="gap-y-4 md:gap-x-8 mx-auto">
             <div className="col-span-12 lg:col-span-6 flex flex-col md:gap-8 my-auto">
               <div className="flex flex-col gap-4 md:gap-8  font-montserrat">
@@ -139,16 +146,17 @@ const OpenYourAccountPage = () => {
 
       <DefaultPageSection.Section className=" bg-open-account-house bg-cover bg-center bg-opacity-10 md:h-[796px]">
         <DefaultPageSection.Mask className="from-black/85 to-black/5 py-8 md:py-16">
-          <DefaultPageSection.Div className="md:ml-32">
+          <DefaultPageSection.Div className="lg:ml-32">
             <div className="col-span-12 flex flex-col gap-4 md:gap-8">
               <div className="w-8 h-2 bg-white rounded-md"></div>
               <div className="flex flex-col gap-4 md:gap-8  font-montserrat">
                 <CustomText.Title
                   fontSize="lg"
-                  maxWidth="lg"
+                  maxWidth="xlg"
                   className="font-bold text-white"
                 >
-                  Casa para os Seus Investimetnos. Assessoria para sua vida.
+                  Casa para os Seus Investimetnos. <br />
+                  Assessoria para sua vida.
                 </CustomText.Title>
                 <CustomText.Paragraph maxWidth="lg" className="text-white">
                   Queremos estar ao seu lado na construção de uma estratégia

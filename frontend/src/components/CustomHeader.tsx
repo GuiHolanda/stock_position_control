@@ -18,12 +18,7 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-  UsersIcon,
-} from "@heroicons/react/20/solid";
+import { ChevronDownIcon, UsersIcon } from "@heroicons/react/20/solid";
 import Logo from "./UI/Logo";
 import { CustomPopoverGroup, HeaderNavNodes } from "./UI/PopoverGroup";
 import { OpenAccountButton } from "./OpenAccountButton";
@@ -202,7 +197,7 @@ export const CustomHeader = () => {
                   )}
                 </Disclosure>
                 <a
-                  href="#"
+                  href="/para-sua-empresa"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Para sua Empresa

@@ -1,9 +1,9 @@
+import Image from "next/image";
+import rendaFixaBackground from "../../../public/img/rend-fixa.jpg";
 import { TabGroup, TabList, TabPanels, TabPanel, Tab } from "@headlessui/react";
 import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
 import { CustomText } from "../../components/UI/Texts";
-import Image from "next/image";
 import { OpenAccountButton } from "../../components/OpenAccountButton";
-import { CardLayout01 } from "../../components/UI/CardLayout01";
 
 const differentials = [
   {
@@ -80,11 +80,17 @@ const differentialCards = [
 const VariableIncomePage = () => {
   return (
     <>
-      <DefaultPageSection.Section
-        isFirstSection
-        className="bg-rend-fixa bg-cover bg-center"
-      >
-        <DefaultPageSection.Mask className="from-black/65 from-25% md:from-40% to-black/5">
+      <DefaultPageSection.Section isFirstSection className="relative">
+        <Image
+          src={rendaFixaBackground}
+          fill
+          alt="home page background"
+          style={{
+            objectFit: "cover", // cover, contain, none
+          }}
+          priority
+        />
+        <DefaultPageSection.Mask className="absolute from-black/65 from-25% md:from-40% to-black/5">
           <DefaultPageSection.Div className="lg:ml-32 py-32 md:py-64">
             <div className="col-span-12 flex flex-col gap-4 md:gap-8">
               <div className="flex flex-col gap-2 md:gap-4">
@@ -172,7 +178,11 @@ const VariableIncomePage = () => {
           </div>
           <div className="col-span-12 md:col-span-7 flex flex-col gap-4 md:gap-8 mx-auto">
             <CustomText.Title maxWidth="lg" className="text-white font-bold">
-              Por que investir em Renda Fixa com a Veneza ?
+              Por que investir em{" "}
+              <span className="uppercase font-light text-sky-500">
+                Renda Fixa
+              </span>{" "}
+              com a Veneza ?
             </CustomText.Title>
             <ul className="flex flex-col gap-4 md:gap-8">
               {differentials.map((differential, index) => (

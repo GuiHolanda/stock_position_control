@@ -77,7 +77,7 @@ export const CustomFooter = () => {
                 Sobre a Veneza
               </p>
 
-              <ul className="mt-8 space-y-4 text-sm">
+              <ul className="mt-4 md:mt-8 space-y-4 text-sm">
                 {/* <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
@@ -112,7 +112,7 @@ export const CustomFooter = () => {
                 Nossos Serviços
               </p>
 
-              <ul className="mt-8 space-y-4 text-sm">
+              <ul className="mt-4 md:mt-8 space-y-4 text-sm">
                 <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
@@ -154,7 +154,7 @@ export const CustomFooter = () => {
             <div className="text-center sm:text-left md:col-span-2">
               <p className="text-lg font-medium text-gray-900">Contact Us</p>
 
-              <ul className="flex flex-col mt-8 space-y-4 text-sm">
+              <ul className="flex flex-col mt-4 md:mt-8 space-y-4 text-sm">
                 <li>
                   <a
                     className="flex justify-center sm:justify-start gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"

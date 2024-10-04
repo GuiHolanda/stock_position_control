@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { QueryProvider } from "./QueryProvider";
 import { CustomHeader } from "../components/CustomHeader";
 import { CustomFooter } from "../components/CustomFooter";
 import { Montserrat } from "next/font/google";
@@ -30,15 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <QueryProvider>
-          <main className="flex flex-col h-screen">
-            <CustomHeader />
-            <div className={`${montserrat.variable}  mt-[56px] sm:mt-[98px]`}>
-              {children}
-            </div>
-            <CustomFooter />
-          </main>
-        </QueryProvider>
+        <main className="flex flex-col h-screen">
+          <CustomHeader />
+          <div className={`${montserrat.variable}  mt-[55px] sm:mt-[104px]`}>
+            {children}
+          </div>
+          <CustomFooter />
+        </main>
       </body>
     </html>
   );

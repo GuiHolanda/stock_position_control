@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import homePageBackground from "../../public/img/home-page-texture-min-2048.jpg";
 import Grifo from "../components/Grifo";
 import { OpenAccountButton } from "../components/OpenAccountButton";
 import { DefaultPageSection } from "../components/UI/DefaultPageSection";
@@ -7,7 +8,6 @@ import { CardLayout01 } from "../components/UI/CardLayout01";
 import {
   BeakerIcon,
   CalendarDaysIcon,
-  ChatBubbleLeftRightIcon,
   CheckBadgeIcon,
   GlobeAltIcon,
   PhoneIcon,
@@ -61,16 +61,22 @@ const differentialCards = [
 export default function Page() {
   return (
     <>
-      <DefaultPageSection.Section
-        isFirstSection
-        className="bg-home-page-texture bg-cover rounded-br-[48px] bg-center"
-      >
-        <DefaultPageSection.Mask className=" from-black/65 from-40% to-black/5 relative py-8 md:py-16">
-          <DefaultPageSection.Div className="md:ml-32">
+      <DefaultPageSection.Section isFirstSection className="relative">
+        <Image
+          src={homePageBackground}
+          fill
+          alt="home page background"
+          style={{
+            objectFit: "cover", // cover, contain, none
+          }}
+          priority
+        />
+        <DefaultPageSection.Mask className="absolute from-black/65 from-40% to-black/5 py-8 md:py-16">
+          <DefaultPageSection.Div className="lg:ml-32">
             <Grifo
               fill="#0d0d0d"
               opacity={"50%"}
-              className="absolute right-32 h-[265px] -bottom-1 sm:h-[calc(100svh-132px)] xl:right-72"
+              className="absolute right-16 h-[calc(50svh)] -bottom-2  sm:h-[calc(100svh-132px)] xl:right-72"
             />
             <div className="col-span-12 md:col-span-8 flex flex-col gap-4 sm:gap-8 md:items-start z-10 my-auto">
               <div className="h-1 w-4 sm:w-8 sm:h-2 bg-white rounded-md"></div>
@@ -219,7 +225,7 @@ export default function Page() {
                 maxWidth="md"
                 className="text-sky-500"
               >
-                Assessoria Esclusiva
+                Assessoria Exclusiva
               </CustomText.Paragraph>
 
               <ul className="flex flex-col items-center">

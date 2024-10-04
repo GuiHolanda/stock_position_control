@@ -21,9 +21,9 @@ export const OpenAccountButton = ({
   return (
     <Link
       href={"/abra-sua-conta"}
-      className={`py-2 px-4 md:py-4 md:px-8 rounded-md size-fit ${colors} ${className}`}
+      className={`py-2 px-4 sm:py-4 sm:px-8 rounded-md size-fit text-xs sm:text-base ${colors} ${className}`}
     >
-      <CustomText.Paragraph>Abra sua conta</CustomText.Paragraph>
+      Abra sua conta
     </Link>
   );
 };

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import yourCompanyBackground from "../../../public/img/for-company-background-2048.jpg";
 import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
 import { CustomText } from "../../components/UI/Texts";
 import { OpenAccountButton } from "../../components/OpenAccountButton";
@@ -72,11 +73,17 @@ const differentialCards = [
 const ForYourCompanyPage = () => {
   return (
     <>
-      <DefaultPageSection.Section
-        isFirstSection
-        className="bg-for-company-background bg-cover"
-      >
-        <DefaultPageSection.Mask className="from-black/95 from-25% md:from-40% to-black/5">
+      <DefaultPageSection.Section isFirstSection className="relative">
+        <Image
+          src={yourCompanyBackground}
+          fill
+          alt="home page background"
+          style={{
+            objectFit: "cover", // cover, contain, none
+          }}
+          priority
+        />
+        <DefaultPageSection.Mask className="absolute from-black/95 from-25% md:from-40% to-black/5">
           <DefaultPageSection.Div className="lg:ml-32 py-32 md:py-64">
             <div className="col-span-12 flex flex-col gap-4 md:gap-8">
               <div className="flex flex-col gap-2 md:gap-4">

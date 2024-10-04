@@ -8,8 +8,8 @@ export async function POST(req: NextRequest) {
   const body: NewLeadEmailProps = await req.json();
 
   const { data, error } = await resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: "gholanda04@gmail.com",
+    from: "contato@venezainvestimentos.com",
+    to: "contato@venezainvestimentos.com.br",
     subject: "Um lead deixou uma menssagem",
     react: NewLeadEmail(body),
   });

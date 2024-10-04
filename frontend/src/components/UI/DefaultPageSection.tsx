@@ -5,7 +5,9 @@ interface DefaultPageSectionProps extends HTMLAttributes<HTMLElement> {
 }
 
 export const PageSection = (props: DefaultPageSectionProps) => {
-  const sectionSize = props.isFirstSection ? `sm:h-[calc(100svh-162px)]` : ``;
+  const sectionSize = props.isFirstSection
+    ? `h-[calc(50svh-55px)] sm:h-[calc(100svh-162px)]`
+    : ``;
   return (
     <section className={`${sectionSize} ${props?.className}`}>
       {props.children}
@@ -16,7 +18,7 @@ export const PageSection = (props: DefaultPageSectionProps) => {
 export const SectionMask = (props: HTMLAttributes<HTMLElement>) => {
   return (
     <div
-      className={`size-full flex items-center w-full h-full sm:py-0 bg-gradient-to-r ${props.className}`}
+      className={`size-full flex items-center w-full h-full bg-gradient-to-r ${props.className}`}
     >
       {props?.children}
     </div>
