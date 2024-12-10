@@ -138,7 +138,7 @@ export default function Page() {
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="py-8 md:py-32 bg-black">
+{/*       <DefaultPageSection.Section className="py-8 md:py-32 bg-black">
         <DefaultPageSection.Div className="gap-y-4 md:gap-y-8 mx-auto">
           <CustomText.Title
             fontSize="md"
@@ -293,7 +293,7 @@ export default function Page() {
             </CardLayout01.Frame>
           </div>
         </DefaultPageSection.Div>
-      </DefaultPageSection.Section>
+      </DefaultPageSection.Section> */}
 
       <DefaultPageSection.Section className="py-8 md:py-32">
         <DefaultPageSection.Div className="space-y-8 mx-auto">
@@ -361,7 +361,7 @@ export default function Page() {
         </DefaultPageSection.Div>
       </DefaultPageSection.Section>
 
-      <DefaultPageSection.Section className="bg-gradient-to-r to-azul_sereno from-30% from-cinza_petroleo py-4 md:py-16">
+{/*       <DefaultPageSection.Section className="bg-gradient-to-r to-azul_sereno from-30% from-cinza_petroleo py-4 md:py-16">
         <DefaultPageSection.Div className="gap-y-4 md:gap-y-8 mx-auto">
           <div className="col-span-12 flex flex-col gap-2 md:gap-4">
             <CustomText.Title
@@ -402,7 +402,7 @@ export default function Page() {
             ]}
           />
         </DefaultPageSection.Div>
-      </DefaultPageSection.Section>
+      </DefaultPageSection.Section> */}
     </>
   );
 }
