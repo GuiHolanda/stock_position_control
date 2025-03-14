@@ -5,7 +5,7 @@ export const CustomFooter = () => {
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-screen-2xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
-        <div className="grid grid-cols-1 gap-4 md:gap-8 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:gap-8 xl:grid-cols-3 border-t pt-8 border-cinza_ameno">
           <div className="flex flex-col gap-2 md:gap-4">
             <div className="flex flex-1 lg:flex-none justify-center sm:justify-start">
               <a href="#" className="-m-1.5 p-1.5">
@@ -77,7 +77,7 @@ export const CustomFooter = () => {
                 Sobre a Veneza
               </p>
 
-              <ul className="mt-4 md:mt-8 space-y-4 text-xs md:text-sm">
+              <ul className="mt-4 space-y-4 text-xs md:text-sm">
                 {/* <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
@@ -104,6 +104,24 @@ export const CustomFooter = () => {
                     Seja um assessor Veneza
                   </a>
                 </li> */}
+
+                <li>
+                  <a
+                    className=" text-teal-600 transition hover:text-teal-600/75"
+                    href="/politica-privacidade"
+                  >
+                    Política de Privacidade
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className=" text-teal-600 transition hover:text-teal-600/75"
+                    href="/politica-cookies"
+                  >
+                    Política de Cookies
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -112,7 +130,7 @@ export const CustomFooter = () => {
                 Nossos Serviços
               </p>
 
-              <ul className="mt-4 md:mt-8 space-y-4 text-xs md:text-sm">
+              <ul className="mt-4 space-y-4 text-xs md:text-sm">
                 <li>
                   <a
                     className="text-gray-700 transition hover:text-gray-700/75"
@@ -156,7 +174,7 @@ export const CustomFooter = () => {
                 Entre em Contato
               </p>
 
-              <ul className="mt-4 md:mt-8 space-y-4 text-xs md:text-sm">
+              <ul className="mt-4 space-y-4 text-xs md:text-sm">
                 <li>
                   <a
                     className="flex justify-center sm:justify-start gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
@@ -239,24 +257,40 @@ export const CustomFooter = () => {
 
         <div className="mt-12 border-t border-cinza_ameno pt-6">
           <div className="text-center sm:flex sm:justify-between sm:text-left">
-            <p className="text-sm text-gray-500">
-              <span className="block sm:inline">
-                Todos os direitos reservados. |{" "}
-              </span>
-
-              <a
-                className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-                href="#"
-              >
-                Política de Privacidade
-              </a>
+            <p className="mt-4 text-xs text-gray-500 sm:order-first sm:mt-0">
+              &copy; 2024 Veneza Investimentos todos os direitos reservados.
             </p>
 
-            <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-              &copy; 2024 Veneza Investimentos
+            <p className="mt-4 text-xs text-gray-500 sm:order-first sm:mt-0 text-center">
+              Assessor de Investimentos da XP Investimentos Corretora de Cambio,
+              Títulos e Valores Mobiliários S.A. - Ouvidoria XP: 0800-722-3730
             </p>
           </div>
         </div>
+
+        <p className="mt-4 border-t border-cinza_ameno pt-6 text-[10px] text-gray-500 text-center">
+          A VENEZA INVESTIMENTOS AI SOCIEDADE SIMPLES PURA, inscrita sob o CNPJ:
+          50.027.659/0001-00 é uma empresa de Assessoria de Investimento
+          devidamente registrada na Comissão de Valores Mobiliários na forma da
+          Resolução CVM178/23 ("Sociedade"), que mantém contrato de distribuição
+          de produtos financeiros com a XP Investimentos Corretora de Câmbio,
+          Títulos e Valores Mobiliários S.A. ("XP") e pode, por conta e ordem
+          dos seus clientes, operar no mercado de capitais segundo a legislação
+          vigente. Na forma da legislação da CVM, o Assessor de Investimento não
+          pode administrar ou gerir o patrimônio de investidores. O investimento
+          em ações é um investimento de risco e rentabilidade passada não é
+          garantia de rentabilidade futura. Na realização de operações com
+          derivativos existe a possibilidade de perdas superiores aos valores
+          investidos, podendo resultar em significativas perdas patrimoniais A
+          Sociedade poderá exercer atividades complementares relacionadas aos
+          mercados financeiro, securitário, de previdência e capitalização,
+          desde que não conflitem com a atividade de assessoria de
+          investimentos, podendo ser realizada por meio da pessoa jurídica acima
+          descrita ou por meio de pessoa jurídica terceira. Todas as atividades
+          são prestadas mantendo a devida segregação e em cumprimento ao quanto
+          previsto nas regras da CVM ou de outros órgãos requladores e
+          autorrequladores.
+        </p>
       </div>
     </footer>
   );

@@ -39,7 +39,7 @@ const categories = [
   {
     name: "ETFs",
     title: "Diversifique com inteligência e alcance seus objetivos com ETFs.",
-    text: "Os ETFs são uma solução eficiente para diversificar seu portfólio e acessar uma ampla gama de ativos com baixo custo. Na Veneza Investimentos, oferecemos consultoria especializada para selecionar os ETFs mais adequados ao seu perfil e estratégia de investimento. Amplie suas oportunidades de crescimento e aproveite a flexibilidade dos ETFs para otimizar seu retorno.",
+    text: "Os ETFs são uma solução eficiente para diversificar seu portfólio e acessar uma ampla gama de ativos com baixo custo. Na Veneza Investimentos, oferecemos suporte especializado para selecionar os ETFs mais adequados ao seu perfil e estratégia de investimento. Amplie suas oportunidades de crescimento e aproveite a flexibilidade dos ETFs para otimizar seu retorno.",
   },
   {
     name: "Operações Estruturadas",
@@ -117,10 +117,9 @@ const VariableIncomePage = () => {
               </CustomText.Title>
               <CustomText.Paragraph maxWidth="lg" className="text-black">
                 Na Veneza Investimentos, oferecemos expertise em ações, ETFs,
-                opções e futuros para ajudar você a diversificar e crescer seu
-                portfólio. Com análises detalhadas e estratégias personalizadas,
-                sua jornada de investimento será guiada com segurança e
-                confiança.
+                opções e mercado futuro para ajudar você a diversificar e
+                crescer seu portfólio. Com estratégias personalizadas, sua
+                jornada de investimento será guiada com segurança e confiança.
               </CustomText.Paragraph>
             </div>
           </div>
