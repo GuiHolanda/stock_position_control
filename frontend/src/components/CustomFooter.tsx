@@ -272,9 +272,9 @@ export const CustomFooter = () => {
           A VENEZA INVESTIMENTOS AI SOCIEDADE SIMPLES PURA, inscrita sob o CNPJ:
           50.027.659/0001-00 é uma empresa de Assessoria de Investimento
           devidamente registrada na Comissão de Valores Mobiliários na forma da
-          Resolução CVM178/23 ("Sociedade"), que mantém contrato de distribuição
+          Resolução CVM178/23 Sociedade, que mantém contrato de distribuição
           de produtos financeiros com a XP Investimentos Corretora de Câmbio,
-          Títulos e Valores Mobiliários S.A. ("XP") e pode, por conta e ordem
+          Títulos e Valores Mobiliários S.A. XP e pode, por conta e ordem
           dos seus clientes, operar no mercado de capitais segundo a legislação
           vigente. Na forma da legislação da CVM, o Assessor de Investimento não
           pode administrar ou gerir o patrimônio de investidores. O investimento
