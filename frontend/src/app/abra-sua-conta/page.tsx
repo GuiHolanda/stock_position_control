@@ -162,7 +162,7 @@ const OpenYourAccountPage = () => {
                   Queremos estar ao seu lado na construção de uma estratégia
                   mais segura e assertiva em qualquer momento, com as melhores
                   soluções em investimentos para você e financeiras para sua
-                  empresa, além de planejamento patrimonial e sucessório.
+                  empresa.
                 </CustomText.Paragraph>
               </div>
               <div className="flex gap-4 md:gap-8 items-center">

@@ -110,8 +110,7 @@ export default function Page() {
             </CustomText.Title>
             <CustomText.Paragraph fontSize="md" maxWidth="md">
               Nosso time conecta expertise de mercado ao seu propósito de vida.
-              Afinal, ser exclusivo, de verdade, é ter acesso a uma curadoria
-              financeira feita pelas mãos de quem conhece e respeita a sua
+              Afinal, ser exclusivo, de verdade, é ter acesso àS oportunidades feita pelas mãos de quem conhece e respeita a sua
               história.
               <br />
               <br />

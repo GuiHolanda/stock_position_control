@@ -43,7 +43,7 @@ const categories = [
   },
   {
     name: "Mutual Funds",
-    title: "Investimento Coletivo com Gestão Profissional",
+    title: "Investimento Coletivo com Expertise",
     text: "Os Mutual Funds permitem que você invista em uma vasta gama de ativos internacionais com facilidade. Esses fundos oferecem exposição a diferentes mercados e setores, sem que você precise gerenciar cada ativo individualmente. A Veneza Investimentos auxilia na escolha dos melhores fundos mútuos globais, garantindo que sua carteira esteja equilibrada e diversificada.",
   },
 ];

@@ -42,7 +42,7 @@ const corporateSolutions = [
   {
     img: "/icons/stock-market.png",
     title: "Derivativos",
-    text: "Expertise em gestão de riscos financeiros e soluções de hedge personalizadas para lidar com as exposições específicas do seu negócio, protegendo seus ativos para um crescimento seguro e sustentável.",
+    text: "Expertise em monitoramento de riscos financeiros e soluções de hedge personalizadas para lidar com as exposições específicas do seu negócio, protegendo seus ativos para um crescimento seguro e sustentável.",
     services: ["Moedas", "Comodities", "Juros", "Risco Sacado"],
   },
 ];

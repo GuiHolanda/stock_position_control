@@ -16,7 +16,7 @@ const differentials = [
   },
   {
     img: "/icons/add-to-cart.png",
-    text: "Com a Veneza, você tem acesso às mais recentes inovações no mercado, aprimorando a gestão e o desempenho do seu portfólio.",
+    text: "Com a Veneza, você tem acesso às mais recentes inovações no mercado, aprimorando o acompanhamento e o desempenho do seu portfólio.",
   },
   {
     img: "/icons/stock-market.png",
