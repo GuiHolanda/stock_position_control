@@ -221,7 +221,7 @@ export const CustomFooter = () => {
                       />
                     </svg>
 
-                    <span className="text-gray-700">(81) 3039-8048</span>
+                    <span className="text-gray-700">(81) 9 9682-7121</span>
                   </a>
                 </li>
 
