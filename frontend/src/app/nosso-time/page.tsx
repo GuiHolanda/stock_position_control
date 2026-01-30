@@ -2,22 +2,19 @@ import { DefaultPageSection } from "../../components/UI/DefaultPageSection";
 import { CustomText } from "../../components/UI/Texts";
 
 const assessores = [
-  { cod: "71070", name: "André Moz", gender: "male", img: "71070.jpeg" },
-  { cod: "24119", name: "Emanuel Diniz", gender: "male" },
-  { cod: "21729", name: "Francisco Barbosa", gender: "male" },
+  { cod: "24119", name: "Emanuel Diniz", gender: "male", img: "24119.jpeg" },
+  { cod: "21729", name: "Francisco Barbosa", gender: "male", img: "21729.jpeg" },
   { cod: "22740", name: "Guilherme Holanda", gender: "male", img: "22740.jpeg" },
-  { cod: "20323", name: "Leonardo Rodrigues", gender: "male" },
+  { cod: "20323", name: "Leonardo Rodrigues", gender: "male", img: "20323.jpeg" },
   { cod: "50486", name: "Lucas Souza", gender: "male" },
-  { cod: "21638", name: "Luiz de Andrade", gender: "male" },
-  { cod: "73232", name: "Makarenna Portugal", gender: "female" },
-  { cod: "22919", name: "Marcus Lopes", gender: "male" },
-  { cod: "23768", name: "Nicole Magalhães", gender: "female" },
+  { cod: "21638", name: "Luiz de Andrade", gender: "male", img: "21638.jpeg" },
+  { cod: "73232", name: "Makarenna Portugal", gender: "female", img: "73232.jpeg" },
+  { cod: "22919", name: "Marcus Lopes", gender: "male", img: "22919.jpeg" },
+  { cod: "23768", name: "Nicole Magalhães", gender: "female", img: "23768.jpeg" },
   { cod: "69180", name: "Paulo Lessa", gender: "male", socials: 'https://www.linkedin.com/in/paulo-lessa-5a7b2a36/', img: "69180.jpg" },
-  { cod: "42291", name: "Renata de Albuquerque", gender: "male" },
-  { cod: "23637", name: "Rômulo Halliday", gender: "male" },
-  { cod: "47798", name: "Thiago Miotto", gender: "male" },
+  { cod: "42291", name: "Renata de Albuquerque", gender: "male", img: "42291.jpeg" },
+  { cod: "23637", name: "Rômulo Halliday", gender: "male", img: "23637.jpeg" },
   { cod: "44112", name: "Victor Lúcio", gender: "male" },
-  { cod: "22828", name: "Yuri Fernandes", gender: "male" },
 ];
 
 export default function Page() {
