@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import rendaFixaBackground from "../../../public/img/rend-fixa.jpg";
 import { TabGroup, TabList, TabPanels, TabPanel, Tab } from "@headlessui/react";

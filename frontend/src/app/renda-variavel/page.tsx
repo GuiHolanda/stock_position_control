@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import RvBackground from "../../../public/img/rend-variavel-min-2028.jpg";
 import { TabGroup, TabList, TabPanels, TabPanel, Tab } from "@headlessui/react";

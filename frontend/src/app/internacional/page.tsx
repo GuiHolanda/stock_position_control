@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import internationalBackground from "../../../public/img/international.jpg";
 import { TabGroup, TabList, TabPanels, TabPanel, Tab } from "@headlessui/react";
